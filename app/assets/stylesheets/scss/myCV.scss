@@ -23,35 +23,35 @@
             height: auto;
         }
     }
-    .line-noti {
-        background-color: #f8f8f8;
-        width: 100%;
-        display: none;
-        .noti-title {
-            height: 5rem;
-            background-color: black;
-            color: white;
-            font-size: 2rem;
-            display: flex;
-            align-items: center;
-            padding: 0 2rem;
+}
+.line-noti {
+    background-color: #f8f8f8;
+    width: 100%;
+    // display: none;
+    .noti-title {
+        height: 5rem;
+        background-color: black;
+        color: white;
+        font-size: 2rem;
+        display: flex;
+        align-items: center;
+        padding: 0 2rem;
+    }
+    .noti-container {
+        // padding: 1rem 2rem;
+        font-size: 20px;
+        & ul > li {
+            padding: 0.5rem 0;
         }
-        .noti-container {
-            // padding: 1rem 2rem;
-            font-size: 20px;
-            & ul > li {
-                padding: 0.5rem 0;
-            }
-            & ul > li:nth-child(odd) {
-                background-color: #dcdbdc;
-            }
-            & ul > li {
-                padding: 0.5rem 2rem;
-                display: flex;
-                justify-content: space-between;
-                .list-li {
-                    max-width: 80%;
-                }
+        & ul > li:nth-child(odd) {
+            background-color: #dcdbdc;
+        }
+        & ul > li {
+            padding: 0.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            .list-li {
+                max-width: 80%;
             }
         }
     }
@@ -67,4 +67,45 @@
 #fillin-position {
     color: #ffa80c;
     font-weight: 600;
+}
+
+.white-worker {
+    width: 100px;
+    height: 100px;
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 0;
+    }
+}
+.green-worker {
+    width: 100px;
+    height: 100px;
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: -96px;
+    }
+}
+.red-worker {
+    width: 100px;
+    height: 100px;
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: -197px;
+    }
+}
+.yellow-worker {
+    width: 100px;
+    height: 100px;
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: -297px;
+    }
 }

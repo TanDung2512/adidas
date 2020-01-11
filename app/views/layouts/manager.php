@@ -11,37 +11,37 @@
             <td class="table-head2">Current MP</td>
         </tr>
         <tr>
-            <td>01</td>
+            <td>A1</td>
             <td>30</td>
             <td>29</td>
         </tr>
         <tr>
-            <td>02</td>
+            <td>A2</td>
             <td>20</td>
             <td>20</td>
         </tr>
         <tr>
-            <td>03</td>
+            <td>A3</td>
             <td>35</td>
             <td>30</td>
         </tr>
         <tr>
-            <td>04</td>
+            <td>A4</td>
             <td>30</td>
             <td>30</td>
         </tr>
         <tr>
-            <td>05</td>
+            <td>A5</td>
             <td>16</td>
             <td>15</td>
         </tr>
         <tr>
-            <td>06</td>
+            <td>A6</td>
             <td>30</td>
             <td>29</td>
         </tr>
         <tr>
-            <td>07</td>
+            <td>A7</td>
             <td>30</td>
             <td>29</td>
         </tr>

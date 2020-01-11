@@ -18,18 +18,25 @@
                 <div class="menu" id="manager-title">
                     MANAGER
                 </div> </a
-            >`
-            <div class="menu" id="noti">
+            >
+            <!-- <div class="menu" id="noti">
                 NOTIFICATION
-            </div>
+            </div> -->
+            <a href="noti">
+                <div class="menu" id="noti-title">
+                NOTIFICATION
+                </div>
+            </a>
             <a href="tv-notification">
                 <div class="menu" id="tv-title">
                     TV
                 </div>
             </a>
-            <div class="menu">
+            <a href="waiter">
+            <div class="menu" id="list-title">
                 LIST
             </div>
+            </a>
             <!-- <div class="noti-bell">
                 <img src="app/assets/images/bell.svg" alt="noti-bell" />
             </div> -->

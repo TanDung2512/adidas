@@ -52,6 +52,8 @@ Router::GET('/tv-notification', function(){
 Router::GET('/noti', function(){
     $noti = new NotificationController();
     $noti->render();
+});
+
 Router::GET('/line-supervisor/noti', function(){
     
 });
@@ -68,9 +70,6 @@ Router::GET('/tv-notification/assign-workers', function(){
     
 });
 
-Router::GET('/manager', function(){
-    
-});
 
 
 $action = $_SERVER['REQUEST_URI'];

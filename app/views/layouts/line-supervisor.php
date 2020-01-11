@@ -10,3 +10,16 @@
         </div>
     </div>
 </div>
+
+<div class="white-worker">
+    <img src="app/assets/images/worker.png" alt="worker" />
+</div>
+<div class="green-worker">
+    <img src="app/assets/images/worker.png" alt="worker" />
+</div>
+<div class="red-worker">
+    <img src="app/assets/images/worker.png" alt="worker" />
+</div>
+<div class="yellow-worker">
+    <img src="app/assets/images/worker.png" alt="worker" />
+</div>
