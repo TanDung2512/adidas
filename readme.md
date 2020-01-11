@@ -1,5 +1,4 @@
-# Web Programming Assignment 
-**Lecturer:** Dr. Nguyen Duc Thai
+# Adidas Hackathon Project 
 
 **Group members:**
 - Dung Nguyen - 1652119

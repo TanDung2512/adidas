@@ -10,6 +10,8 @@ require_once __DIR__ . "/../controllers/LineSuperController.php";
 require_once __DIR__ . "/../controllers/ManagerController.php";
 require_once __DIR__ . "/../controllers/WaiterController.php";
 require_once __DIR__ . "/../controllers/LoginController.php";
+require_once __DIR__ . "/../controllers/TVNotificationController.php";
+require_once __DIR__ . "/../controllers/NotiController.php";
 require_once __DIR__ . "/../controllers/TestDBController.php";
 
 
@@ -41,6 +43,15 @@ Router::GET('/waiter', function(){
     $waiter->render();
 });
 
+Router::GET('/tv-notification', function(){
+    $waiter = new TVNotificationController();
+    $waiter->render();
+});
+
+
+Router::GET('/noti', function(){
+    $noti = new NotificationController();
+    $noti->render();
 Router::GET('/line-supervisor/noti', function(){
     
 });

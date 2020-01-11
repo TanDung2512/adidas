@@ -1,10 +1,9 @@
-.tv2 {
+.tv {
     width: 100%;
     display: flex;
     justify-content: center;
     // margin-top: 98px;
-    padding: 1rem 6rem;
-    .noti-board2 {
+    .noti-board {
         border: 1px solid black;
         border-collapse: collapse;
         width: 100%;
@@ -13,24 +12,30 @@
     }
 }
 
-.noti-board2 > tbody > tr:nth-child(odd) {
+.noti-board > tbody > tr:nth-child(odd) {
     background-color: #dcdbdc;
 }
 
-.noti-board2 > tbody > tr > td {
+.noti-board > tbody > tr > td {
     border: 1px solid black;
     // padding: 5px;
-    line-height: 1.5;
+    // line-height: 1;
     font-size: 2rem;
     .tv-image {
         // margin: auto;
         height: 56px;
         width: 56px;
         margin: 0.5rem auto;
+        img {
+            object-fit: cover;
+            border-radius: 50%;
+            width: 100%;
+            height: 100%;
+        }
     }
 }
 
-.table-head2 {
+.table-head {
     font-weight: 600;
     color: #fff;
     // font-size: 2rem;
