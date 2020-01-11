@@ -189,9 +189,7 @@ ALTER TABLE `line`
 --
 ALTER TABLE `operator`
   ADD CONSTRAINT `fk_foreign_key_line_id` FOREIGN KEY (`line_id`) REFERENCES `line` (`line_id`),
-  ADD CONSTRAINT `fk_foreign_key_original_id` FOREIGN KEY (`original_id`) REFERENCES `worker` (`worker_id`),
-  ADD CONSTRAINT `fk_foreign_key_replace_id` FOREIGN KEY (`replace_id`) REFERENCES `worker` (`worker_id`);
-
+  ADD CONSTRAINT `fk_foreign_key_original_id` FOREIGN KEY (`original_id`) REFERENCES `worker` (`worker_id`);
 --
 -- Constraints for table `skill`
 --
