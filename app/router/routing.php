@@ -39,7 +39,7 @@ Router::GET('/manager', function(){
     $manager->render();
 });
 
-Router::GET('/waiter', function(){
+Router::GET('/waiting-list', function(){
     $waiter = new WaiterController();
     $waiter->render();
 });

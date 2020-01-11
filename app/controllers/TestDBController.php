@@ -15,8 +15,8 @@
             // print_r($this->position->getFillinWorkers());
             // $this->position->updateWorkerStatus(3, 2);
             // echo $this->position->updateOperatorPosition(1, 2, 2, 6);
-            print_r($this->position->getWorkersByLineID(1));
-            echo "<br>";
+            // print_r($this->position->getWorkersByLineID(1));
+            // echo "<br>";
             // print_r($this->position->getEmptyPosition(1));
             // print_r($this->position->getFreeWaterSpiders());
             // print_r($this->position->writeLog(1, "huhuuhhuhuhuhuhuhu"));
