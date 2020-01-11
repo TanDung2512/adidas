@@ -10,42 +10,30 @@
             <td class="table-head2">Required</td>
             <td class="table-head2">Current MP</td>
         </tr>
-        <tr>
-            <td>A1</td>
-            <td>30</td>
-            <td>29</td>
-        </tr>
-        <tr>
-            <td>A2</td>
-            <td>20</td>
-            <td>20</td>
-        </tr>
-        <tr>
-            <td>A3</td>
-            <td>35</td>
-            <td>30</td>
-        </tr>
-        <tr>
-            <td>A4</td>
-            <td>30</td>
-            <td>30</td>
-        </tr>
-        <tr>
-            <td>A5</td>
-            <td>16</td>
-            <td>15</td>
-        </tr>
-        <tr>
-            <td>A6</td>
-            <td>30</td>
-            <td>29</td>
-        </tr>
-        <tr>
-            <td>A7</td>
-            <td>30</td>
-            <td>29</td>
-        </tr>
-        
+        <?php
+        if(isset($_REQUEST["manager"])){
+            foreach($_REQUEST["manager"] as $line){
+                echo '
+                <tr>
+                    <td>'.$line["line_id"].'</td>
+                    <td>'.$line["workers_num"].'</td>
+                    <td>'.$line["curr"].'</td>
+                </tr>
+                ';
+            }
+
+        }
+        else {
+            echo '
+            <tr>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            ';
+        }
+
+        ?>
     </table>
 </div>
 

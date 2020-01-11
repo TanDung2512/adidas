@@ -8,13 +8,33 @@
         </div>
         <div class="noti-container">
             <ul class="a">
-                <li>
-                    <div>
-                        Position <span id="absent-position">A5</span> is absent
-                    </div>
-                    <div>07:15</div>
-                </li>
-                <li>
+            <?php 
+                if(isset($_REQUEST["log"])){
+                    foreach($_REQUEST["log"] as $log){
+                        echo '
+                        <li>
+                            <div>
+                                '.$log->message .'
+                            </div>
+                            <div>'.$log->time_created.'</div>
+                        </li>
+                        ';
+                    }
+
+                }
+                else {
+                    echo '
+                    <li>
+                        <div>
+                            Position <span id="absent-position">A5</span> is absent
+                        </div>
+                        <div>07:15</div>
+                    </li>
+                    ';
+                }
+
+            ?>
+                <!-- <li>
                     <div class="list-li">
                         <span id="occupied-name">Tan Thanh</span> is assigned to
                         <span id="occupied-position">A5</span>
@@ -29,7 +49,7 @@
                     <div>
                         07:30
                     </div>
-                </li>
+                </li> -->
             </ul>
         </div>
     </div>

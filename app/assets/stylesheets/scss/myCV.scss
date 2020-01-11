@@ -4,7 +4,6 @@
     .line-container {
         width: 100%;
         transition: transform 1s;
-
         .line-title {
             font-size: 48px;
             color: #444444;
@@ -14,7 +13,7 @@
     .line-map {
         // height: 80vh;
         // height: 800px;
-
+        position: relative;
         margin: auto;
         img {
             margin: auto;
@@ -22,8 +21,16 @@
             width: 70%;
             height: auto;
         }
+        .position {
+            position: absolute;
+            &-M1 {
+                top: 1rem;
+                left: 1rem;
+            }
+        }
     }
 }
+
 .line-noti {
     background-color: #f8f8f8;
     width: 100%;
@@ -40,13 +47,13 @@
     .noti-container {
         // padding: 1rem 2rem;
         font-size: 20px;
-        & ul > li {
+        & ul>li {
             padding: 0.5rem 0;
         }
-        & ul > li:nth-child(odd) {
+        & ul>li:nth-child(odd) {
             background-color: #dcdbdc;
         }
-        & ul > li {
+        & ul>li {
             padding: 0.5rem 2rem;
             display: flex;
             justify-content: space-between;
@@ -79,6 +86,7 @@
         object-position: 0;
     }
 }
+
 .green-worker {
     width: 100px;
     height: 100px;
@@ -89,6 +97,7 @@
         object-position: -96px;
     }
 }
+
 .red-worker {
     width: 100px;
     height: 100px;
@@ -99,6 +108,7 @@
         object-position: -197px;
     }
 }
+
 .yellow-worker {
     width: 100px;
     height: 100px;
@@ -130,12 +140,14 @@
     width: 100%;
     height: 126.2px;
 }
-.modal-ava > img {
+
+.modal-ava>img {
     width: 126.2px;
     height: 126.2px;
     object-fit: cover;
     border-radius: 50%;
 }
+
 .modal-name {
     font-size: 29px;
 }
@@ -143,6 +155,7 @@
 .worker-id {
     font-size: 16px;
 }
+
 .worker-type {
     font-size: 20px;
     font-weight: bold;
@@ -163,7 +176,7 @@
     font-weight: bold;
 }
 
-.status-btn > button {
+.status-btn>button {
     width: 109px;
     height: 36px;
     border-radius: 11px;

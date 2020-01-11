@@ -11,6 +11,42 @@
         </span></p>
         <div class="line-map">
             <img src="app/assets/images/map.png" alt="line-map" />
+            <div
+                class="position position-M1 green-worker "
+                onclick="pushModal(this)"
+            >
+                <img src="app/assets/images/worker.png" alt="worker" />
+            </div>
+            <div
+                class=" position position-M2 green-worker"
+                onclick="pushModal(this)"
+            >
+                <img src="app/assets/images/worker.png" alt="worker" />
+            </div>
+            <div
+                class=" position position-P1 green-worker"
+                onclick="pushModal(this)"
+            >
+                <img src="app/assets/images/worker.png" alt="worker" />
+            </div>
+            <div
+                class=" position position-P2 green-worker"
+                onclick="pushModal(this)"
+            >
+                <img src="app/assets/images/worker.png" alt="worker" />
+            </div>
+            <div
+                class=" position position-P3 green-worker"
+                onclick="pushModal(this)"
+            >
+                <img src="app/assets/images/worker.png" alt="worker" />
+            </div>
+            <div
+                class=" position position-P4 green-worker"
+                onclick="pushModal(this)"
+            >
+                <img src="app/assets/images/worker.png" alt="worker" />
+            </div>
         </div>
     </div>
 </div>
@@ -69,8 +105,6 @@ foreach($_REQUEST["line_workers"] as $w) {
         $data = $data . $str;
     }
     if ($w["position"] == 0) {
-
-        // echo $data;
         echo '<div
         class="green-worker"
         onclick="pushModal(this)"
@@ -114,7 +148,6 @@ foreach($_REQUEST["line_workers"] as $w) {
 <script> 
     function pushModal(worker){
 
-        console.log($(worker).data("ori_name"));
         let children = $("#id01 div[id^='data-']");
         $.each(children, function(child){
             let id = $(this).attr("id").replace('data-','');
@@ -125,6 +158,26 @@ foreach($_REQUEST["line_workers"] as $w) {
                 $(this).text($(worker).data("ori_" + id));
             }
         })
+        console.log($(worker).data("position") )
+        if($(worker).data("position") == 0) {
+            console.log($(this));
+            $("#id01").find(".status-btn").css("display", "none"); 
+        }
+        else if ($(worker).data("position") == 2) {
+            $("#id01").find(".status-btn>button").text("confirm")
+            .on("click", function(){
+                //call ajax;
+                $.post( "line-supervisor/confirm",{
+                    worker_id: $(worker).data("ori_id"),
+                    function(data, status){
+                        alert("Data: " + data + "\nStatus: " + status);
+                    });
+                })
+            })
+            
+        }
+
+
         document.getElementById('id01').style.display='block';
     }
 

@@ -32,7 +32,7 @@
                     TV
                 </div>
             </a>
-            <a href="waiter">
+            <a href="waiting-list">
             <div class="menu" id="list-title">
                 LIST
             </div>

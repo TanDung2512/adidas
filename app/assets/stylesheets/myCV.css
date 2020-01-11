@@ -9,12 +9,18 @@
       color: #444444;
       margin: 2rem 3rem 0; }
   .supervisor-content .line-map {
+    position: relative;
     margin: auto; }
     .supervisor-content .line-map img {
       margin: auto;
       display: block;
       width: 70%;
       height: auto; }
+    .supervisor-content .line-map .position {
+      position: absolute; }
+      .supervisor-content .line-map .position-M1 {
+        top: 1rem;
+        left: 1rem; }
 
 .line-noti {
   background-color: #f8f8f8;

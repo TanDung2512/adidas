@@ -119,14 +119,14 @@ class positionService {
         if ($line_id == NULL) {
             return false;
         }
-        $query = 'SELECT workers_num, COUNT(*) FROM line, operator WHERE line.line_id = :line_id AND line.line_id = operator.line_id AND operator.position != 1';
+        $query = 'SELECT workers_num, COUNT(*) as curr, line.line_id FROM line, operator WHERE line.line_id = :line_id AND line.line_id = operator.line_id AND operator.position != 1';
         $stmt = $this->db_connection->prepare($query);
         $stmt->bindParam(':line_id', $line_id, PDO::PARAM_INT);
         $stmt->setFetchMode(PDO::FETCH_ASSOC);
         $stmt->execute();
         $resultSet = $stmt->fetchAll();
         if (count($resultSet) > 0) {
-            return $resultSet[0];
+            return $resultSet;
         }
         return false;
     }
@@ -163,13 +163,24 @@ class positionService {
         $resultSet = $stmt->fetchAll();
         if (count($resultSet) > 0) {
             $arr = [];
+
+            // $op_id,
+            // $op_name,
+            // $line_id,
+            // $position,
+            // $original_id,
+            // $replace_id,
+            // $skill_id_ref
+
             foreach($resultSet as $row) {
                 $temp = new Operator(
                     $row["op_id"],
+                    $row["op_name"],
                     $row["line_id"],
                     $row["position"],
                     $row["original_id"],
-                    $row["replace_id"]
+                    $row["replace_id"],
+                    $row["skill_id_ref_op"]
                 );
                 array_push($arr, $temp);
             }
@@ -181,7 +192,7 @@ class positionService {
 
 
     public function getFreeWaterSpiders() {
-        $query = 'SELECT * FROM worker WHERE worker.status = 1 AND worker.type = 1';
+        $query = 'SELECT * FROM worker, skill WHERE worker.status = 1 AND worker.type = 1 AND skill.worker_id = worker.worker_id';
         $stmt = $this->db_connection->prepare($query);
         $stmt->setFetchMode(PDO::FETCH_ASSOC);
         $stmt->execute();
@@ -196,6 +207,26 @@ class positionService {
         return false;
     }
 
+    public function getFreeWaterSpidersBySkillID($skill_id){
+        $query = 'SELECT * FROM worker, skill 
+                WHERE worker.status = 1 
+                AND worker.type = 1 
+                AND skill.worker_id = worker.worker_id
+                AND skill.skill_id_ref = :skill_id';
+        $stmt = $this->db_connection->prepare($query);
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $stmt->bindParam(':skill_id', $skill_id, PDO::PARAM_INT);
+        $stmt->execute();
+        $resultSet = $stmt->fetchAll();
+        if (count($resultSet) > 0) {
+            $arr = [];
+            foreach($resultSet as $row) {
+                array_push($arr, $row);
+            }
+            return $arr;
+        }
+        return false;
+    }
 
     public function getAllWaterSpiders() {
         $query = 'SELECT * FROM worker WHERE worker.type = 1';
