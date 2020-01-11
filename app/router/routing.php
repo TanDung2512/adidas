@@ -10,6 +10,7 @@ require_once __DIR__ . "/../controllers/LineSuperController.php";
 require_once __DIR__ . "/../controllers/ManagerController.php";
 require_once __DIR__ . "/../controllers/WaiterController.php";
 require_once __DIR__ . "/../controllers/LoginController.php";
+require_once __DIR__ . "/../controllers/TVNotificationController.php";
 
 define("ROOT_DIR", "adidas");
 
@@ -31,6 +32,11 @@ Router::GET('/manager', function(){
 
 Router::GET('/waiter', function(){
     $waiter = new WaiterController();
+    $waiter->render();
+});
+
+Router::GET('/tv-notification', function(){
+    $waiter = new TVNotificationController();
     $waiter->render();
 });
 

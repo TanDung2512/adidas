@@ -4,9 +4,9 @@
     name="author"
     content="Nguyen Tan Dung, Tran Duc Thinh, Tran Ngoc Minh Thu, Vo Ngoc Quynh Nhu"
   />
-  <meta name="description" content="assignment web" />
+  <meta name="description" content="adidas hackathon" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>La Vitaé</title>
+  <title>Adidas Hackathon</title>
   <link href="./app/assets/stylesheets/styles.css" rel="stylesheet" />
 
   <!-- <script  type="text/javascript"  src="./app/assets/javascripts/editCV.js"></script> -->
