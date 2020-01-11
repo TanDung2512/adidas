@@ -1,7 +1,7 @@
 <?php
 
 require_once(__DIR__."/../database/connect_DB.php");
-include_once(__DIR__."/../classes/user.php");
+include_once(__DIR__."/../classes/worker.php");
 
  /**
   * @package app\services
@@ -31,7 +31,6 @@ class positionService {
     }
 
     public function getListOfWaiter() {
-
     }
 
     public function getLineByID() {
