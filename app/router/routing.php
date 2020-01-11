@@ -11,6 +11,7 @@ require_once __DIR__ . "/../controllers/ManagerController.php";
 require_once __DIR__ . "/../controllers/WaiterController.php";
 require_once __DIR__ . "/../controllers/LoginController.php";
 require_once __DIR__ . "/../controllers/TVNotificationController.php";
+require_once __DIR__ . "/../controllers/NotiController.php";
 
 define("ROOT_DIR", "adidas");
 
@@ -39,6 +40,13 @@ Router::GET('/tv-notification', function(){
     $waiter = new TVNotificationController();
     $waiter->render();
 });
+
+
+Router::GET('/noti', function(){
+    $noti = new NotificationController();
+    $noti->render();
+});
+
 
 $action = $_SERVER['REQUEST_URI'];
 $action = str_replace("adidas/", "", $action);

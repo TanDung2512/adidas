@@ -78,16 +78,16 @@ header {
 .app-header {
   display: flex;
   justify-content: space-between;
-  height: 98px;
+  height: 70px;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
   align-items: center;
   padding: 0 20px; }
   .app-header .home-logo {
-    font-size: 30px;
+    font-size: 28px;
     color: #707070;
     font-weight: 600;
     letter-spacing: 1;
-    height: 64px;
+    height: 40px;
     display: flex;
     align-items: center; }
     .app-header .home-logo img {
@@ -105,7 +105,7 @@ header {
       margin-right: 20px; }
     .app-header .header-right .menu {
       display: flex;
-      font-size: 30px;
+      font-size: 24px;
       align-items: baseline;
       color: #707070;
       padding: 0 1rem; }
@@ -270,14 +270,23 @@ page[size="A4"] {
   display: flex;
   width: 100%; }
   .supervisor-content .line-container {
-    width: 60%; }
+    width: 100%;
+    transition: transform 1s; }
     .supervisor-content .line-container .line-title {
       font-size: 48px;
       color: #444444;
-      margin: 2rem 3rem; }
+      margin: 2rem 3rem 0; }
+  .supervisor-content .line-map {
+    margin: auto; }
+    .supervisor-content .line-map img {
+      margin: auto;
+      display: block;
+      width: 70%;
+      height: auto; }
   .supervisor-content .line-noti {
     background-color: #f8f8f8;
-    transform: translateX(500px); }
+    width: 100%;
+    display: none; }
     .supervisor-content .line-noti .noti-title {
       height: 5rem;
       background-color: black;
@@ -286,16 +295,18 @@ page[size="A4"] {
       display: flex;
       align-items: center;
       padding: 0 2rem; }
-    .supervisor-content .line-noti .noti-container ul > li {
-      padding: 0.5rem 0; }
-    .supervisor-content .line-noti .noti-container ul > li:nth-child(odd) {
-      background-color: #dcdbdc; }
-    .supervisor-content .line-noti .noti-container ul > li {
-      padding: 0.5rem 2rem;
-      display: flex;
-      justify-content: space-between; }
-      .supervisor-content .line-noti .noti-container ul > li .list-li {
-        max-width: 80%; }
+    .supervisor-content .line-noti .noti-container {
+      font-size: 20px; }
+      .supervisor-content .line-noti .noti-container ul > li {
+        padding: 0.5rem 0; }
+      .supervisor-content .line-noti .noti-container ul > li:nth-child(odd) {
+        background-color: #dcdbdc; }
+      .supervisor-content .line-noti .noti-container ul > li {
+        padding: 0.5rem 2rem;
+        display: flex;
+        justify-content: space-between; }
+        .supervisor-content .line-noti .noti-container ul > li .list-li {
+          max-width: 80%; }
 
 #absent-position {
   color: #cc0e03;

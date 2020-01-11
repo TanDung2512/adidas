@@ -2,18 +2,31 @@
     display: flex;
     width: 100%;
     .line-container {
-        width: 60%;
+        width: 100%;
+        transition: transform 1s;
+
         .line-title {
             font-size: 48px;
             color: #444444;
-            margin: 2rem 3rem;
+            margin: 2rem 3rem 0;
         }
     }
+    .line-map {
+        // height: 80vh;
+        // height: 800px;
 
+        margin: auto;
+        img {
+            margin: auto;
+            display: block;
+            width: 70%;
+            height: auto;
+        }
+    }
     .line-noti {
         background-color: #f8f8f8;
-        transform: translateX(500px);
-        // display: none;
+        width: 100%;
+        display: none;
         .noti-title {
             height: 5rem;
             background-color: black;
@@ -25,7 +38,7 @@
         }
         .noti-container {
             // padding: 1rem 2rem;
-
+            font-size: 20px;
             & ul > li {
                 padding: 0.5rem 0;
             }

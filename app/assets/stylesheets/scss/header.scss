@@ -7,16 +7,16 @@ header {
 .app-header {
     display: flex;
     justify-content: space-between;
-    height: 98px;
+    height: 70px;
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
     align-items: center;
     padding: 0 20px;
     .home-logo {
-        font-size: 30px;
+        font-size: 28px;
         color: #707070;
         font-weight: 600;
         letter-spacing: 1;
-        height: 64px;
+        height: 40px;
         display: flex;
         align-items: center;
         img {
@@ -39,7 +39,7 @@ header {
         }
         .menu {
             display: flex;
-            font-size: 30px;
+            font-size: 24px;
             align-items: baseline;
             color: #707070;
             padding: 0 1rem;

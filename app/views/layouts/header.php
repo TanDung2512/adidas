@@ -38,6 +38,3 @@
 </header>
 
 
-<script>
-    $(".line-noti").hide();
-</script>
