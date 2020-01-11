@@ -66,6 +66,11 @@ class positionService {
         return $result;
     }
 
+    /**
+     * get all fillin workers. 
+    * 
+    * @return array Workers or false
+    */ 
     public function getFillinWorkers() {
         $query = 'SELECT * FROM worker, operator WHERE worker.worker_id = operator.replace_id AND operator.position = 2';
         $stmt = $this->db_connection->prepare($query);
@@ -82,7 +87,6 @@ class positionService {
                 $worker["type"],
                 $worker["status"]
               );
-                
               array_push($returnArr, $newTemp);
             }
             return $returnArr;
@@ -106,6 +110,23 @@ class positionService {
                 array_push($arr, $row);
             }
             return $arr;
+        }
+        return false;
+    }
+
+    
+    public function getWorkersNumByLineId($line_id) {
+        if ($line_id == NULL) {
+            return false;
+        }
+        $query = 'SELECT workers_num, COUNT(*) FROM line, operator WHERE line.line_id = :line_id AND line.line_id = operator.line_id AND operator.position != 1';
+        $stmt = $this->db_connection->prepare($query);
+        $stmt->bindParam(':line_id', $line_id, PDO::PARAM_INT);
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $stmt->execute();
+        $resultSet = $stmt->fetchAll();
+        if (count($resultSet) > 0) {
+            return $resultSet[0];
         }
         return false;
     }
