@@ -4,7 +4,11 @@
 
 <div class="supervisor-content">
     <div class="line-container">
-        <p class="line-title">LINE <span id="line-name">A15</span></p>
+        <p class="line-title">LINE <span id="line-name">
+            <?php 
+            print_r($_REQUEST["line_name"]);
+            ?>
+        </span></p>
         <div class="line-map">
             <img src="app/assets/images/map.png" alt="line-map" />
         </div>

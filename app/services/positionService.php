@@ -41,7 +41,7 @@ class positionService {
       $stmt->bindParam(':position_val', $position_val, PDO::PARAM_INT);
       $stmt->bindParam(':replace_id', $replace_id, PDO::PARAM_INT);
       $stmt->bindParam(':line_id', $line_id, PDO::PARAM_INT);
-      $stmt->bindParam(':op_id', $op_id, PDO::PARAM_INT);
+      $stmt->bindParam(':op_id', $op_id, PDO::PARAM_STR);
       $result = $stmt->execute();
       return $result;
     }
@@ -129,6 +129,24 @@ class positionService {
             return $resultSet[0];
         }
         return false;
+    }
+
+
+    public function getLineNameByLineId($line_id) {
+        if ($line_id == NULL) {
+            return false;
+        }
+        $query = 'SELECT line_name FROM line WHERE line.line_id = :line_id';
+        $stmt = $this->db_connection->prepare($query);
+        $stmt->bindParam(':line_id', $line_id, PDO::PARAM_INT);
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $stmt->execute();
+        $resultSet = $stmt->fetchAll();
+        if (count($resultSet) > 0) {
+            return $resultSet[0]['line_name'];
+        }
+        return false;
+
     }
 
 

@@ -14,6 +14,7 @@ require_once __DIR__ . "/../controllers/TVNotificationController.php";
 require_once __DIR__ . "/../controllers/NotiController.php";
 require_once __DIR__ . "/../controllers/TestDBController.php";
 
+require_once __DIR__ . "/../services/positionService.php";
 
 define("ROOT_DIR", "adidas");
 
@@ -54,13 +55,14 @@ Router::GET('/noti', function(){
     $noti->render();
 });
 
-Router::GET('/line-supervisor/noti', function(){
-    
-});
+// Router::GET('/line-supervisor/noti', function(){
+    // giong cai o trennnn
+// });
 
-Router::GET('/line-supervisor/line-workers', function(){
-    
-});
+// Router::GET('/line-supervisor/line-workers', function(){
+//     $lineSuper = new LineSuperController();
+//     $lineSuper->render();
+// });
 
 Router::POST('/line-supervisor/confirm', function(){
     
