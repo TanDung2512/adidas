@@ -11,7 +11,6 @@
         }
 
         public function render(){
-            print_r($this->position->getListOfWaiter());
             parent::getView("testDB");
             // print_r($this->position->getFillinWorkers());
             // $this->position->updateWorkerStatus(3, 2);
@@ -22,7 +21,7 @@
             // print_r($this->position->getFreeWaterSpiders());
             // print_r($this->position->writeLog(1, "huhuuhhuhuhuhuhuhu"));
             // print_r($this->position->readLog(1));
-            print_r($this->position->getWorkersNumByLineId(1));
+            // print_r($this->position->getWorkersNumByLineId(1));
         }
     }
 ?>

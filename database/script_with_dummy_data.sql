@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 11, 2020 at 04:11 PM
+-- Generation Time: Jan 11, 2020 at 05:06 PM
 -- Server version: 10.1.39-MariaDB
 -- PHP Version: 7.3.5
 
@@ -31,15 +31,16 @@ SET time_zone = "+00:00";
 CREATE TABLE `line` (
   `line_id` int(11) NOT NULL,
   `workers_num` int(11) NOT NULL,
-  `supervisor_id` int(11) NOT NULL
+  `supervisor_id` int(11) NOT NULL,
+  `line_name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `line`
 --
 
-INSERT INTO `line` (`line_id`, `workers_num`, `supervisor_id`) VALUES
-(1, 5, 5);
+INSERT INTO `line` (`line_id`, `workers_num`, `supervisor_id`, `line_name`) VALUES
+(1, 5, 5, 'A01');
 
 -- --------------------------------------------------------
 
@@ -69,6 +70,7 @@ INSERT INTO `log` (`log_id`, `line_id`, `message`, `time_created`) VALUES
 
 CREATE TABLE `operator` (
   `op_id` int(11) NOT NULL,
+  `op_name` varchar(255) NOT NULL,
   `line_id` int(11) NOT NULL,
   `position` int(11) NOT NULL,
   `original_id` int(11) NOT NULL,
@@ -80,11 +82,11 @@ CREATE TABLE `operator` (
 -- Dumping data for table `operator`
 --
 
-INSERT INTO `operator` (`op_id`, `line_id`, `position`, `original_id`, `replace_id`, `skill_id_ref_op`) VALUES
-(3, 1, 0, 1, 0, 1),
-(4, 1, 0, 2, 0, 1),
-(5, 1, 1, 6, 0, 3),
-(6, 1, 2, 7, 3, 5);
+INSERT INTO `operator` (`op_id`, `op_name`, `line_id`, `position`, `original_id`, `replace_id`, `skill_id_ref_op`) VALUES
+(3, 'PI01', 1, 0, 1, 0, 1),
+(4, 'PI02', 1, 0, 2, 0, 1),
+(5, 'A01', 1, 1, 6, 0, 3),
+(6, 'M01', 1, 2, 7, 3, 5);
 
 -- --------------------------------------------------------
 
@@ -266,9 +268,7 @@ ALTER TABLE `log`
 -- Constraints for table `operator`
 --
 ALTER TABLE `operator`
-  ADD CONSTRAINT `fk_foreign_key_original_id` FOREIGN KEY (`original_id`) REFERENCES `worker` (`worker_id`),
-  ADD CONSTRAINT `fk_foreign_key_replace_id_ref` FOREIGN KEY (`replace_id`) REFERENCES `worker` (`worker_id`),
-  ADD CONSTRAINT `fk_foreign_key_skill_id_ref_op` FOREIGN KEY (`skill_id_ref_op`) REFERENCES `skill_dict` (`skill_id`);
+  ADD CONSTRAINT `fk_foreign_key_original_id` FOREIGN KEY (`original_id`) REFERENCES `worker` (`worker_id`);
 
 --
 -- Constraints for table `skill`

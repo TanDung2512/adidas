@@ -8,11 +8,12 @@
  */
 
  class Worker{
+
+  /** @var string $ava */
+  public $ava;
+
    /** @var int $worker_id primary key*/
    public $worker_id;
-
-   /** @var string $ava */
-   public $ava;
 
    /** @var string $name */
    public $name;
@@ -24,8 +25,8 @@
    public $status;
 
    public function __construct(
+    $ava,
      $worker_id,
-     $ava,
      $name,
      $type,
      $status
@@ -39,8 +40,8 @@
 
    public function get_json(){
     $json = array(
-      "worker_id" => $this->worker_id,
       "ava" => $this->ava,
+      "worker_id" => $this->worker_id,
       "name" => $this->name,
       "type" => $this->type,
       "status" => $this->status,
