@@ -197,6 +197,23 @@ class positionService {
     }
 
 
+    public function getAllWaterSpiders() {
+        $query = 'SELECT * FROM worker WHERE worker.type = 1';
+        $stmt = $this->db_connection->prepare($query);
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $stmt->execute();
+        $resultSet = $stmt->fetchAll();
+        if (count($resultSet) > 0) {
+            $arr = [];
+            foreach($resultSet as $row) {
+                array_push($arr, $row);
+            }
+            return $arr;
+        }
+        return false;
+    }
+
+
 
     public function writeLog($line_id, $message) {
         if ($line_id == NULL || $message == NULL) {
