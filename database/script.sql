@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 11, 2020 at 06:55 AM
+-- Generation Time: Jan 11, 2020 at 07:24 AM
 -- Server version: 10.1.39-MariaDB
 -- PHP Version: 7.3.5
 
@@ -55,7 +55,7 @@ CREATE TABLE `operator` (
 --
 
 CREATE TABLE `skill` (
-  `skill_id` int(11) NOT NULL,
+  `worker_skill_id` int(11) NOT NULL,
   `skill_name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -70,8 +70,8 @@ CREATE TABLE `worker` (
   `worker_id` int(255) NOT NULL,
   `name` varchar(255) NOT NULL,
   `type` char(1) NOT NULL,
-  `skill_id_ref` int(11) NOT NULL,
-  `status` char(1) NOT NULL
+  `status` char(1) NOT NULL,
+  `worker_skill_id_ref` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -98,14 +98,14 @@ ALTER TABLE `operator`
 -- Indexes for table `skill`
 --
 ALTER TABLE `skill`
-  ADD PRIMARY KEY (`skill_id`);
+  ADD PRIMARY KEY (`worker_skill_id`);
 
 --
 -- Indexes for table `worker`
 --
 ALTER TABLE `worker`
   ADD PRIMARY KEY (`worker_id`),
-  ADD KEY `fk_foreign_key_skill_id_ref` (`skill_id_ref`);
+  ADD KEY `fk_foreign_key_worker_skill_id_ref` (`worker_skill_id_ref`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -127,7 +127,7 @@ ALTER TABLE `operator`
 -- AUTO_INCREMENT for table `skill`
 --
 ALTER TABLE `skill`
-  MODIFY `skill_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `worker_skill_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `worker`
@@ -157,7 +157,7 @@ ALTER TABLE `operator`
 -- Constraints for table `worker`
 --
 ALTER TABLE `worker`
-  ADD CONSTRAINT `fk_foreign_key_skill_id_ref` FOREIGN KEY (`skill_id_ref`) REFERENCES `skill` (`skill_id`);
+  ADD CONSTRAINT `fk_foreign_key_worker_skill_id_ref` FOREIGN KEY (`worker_skill_id_ref`) REFERENCES `skill` (`worker_skill_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
