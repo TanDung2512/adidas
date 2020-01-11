@@ -15,7 +15,7 @@ gulp.task("connect-sync", function() {
         function() {
             browserSync.init({
                 injectChanges: true,
-                proxy: "localhost/web-assignment",
+                proxy: "localhost/adidas",
             });
         }
     );
