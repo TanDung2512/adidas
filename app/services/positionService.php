@@ -1,14 +1,14 @@
 <?php
 
 require_once(__DIR__."/../database/connect_DB.php");
-include_once(__DIR__."/../classes/user.php");
+include_once(__DIR__."/../classes/operator.php");
+include_once(__DIR__."/../classes/worker.php");
 
  /**
   * @package app\services
-  * This class provides all authentication functions.
+  * This class provides all position functions.
   *
-  * @method null | boolean signin(string $user_mail_in, string $password_in)
-  * @method null signout()
+  * @method 
   */
 
 class positionService {
@@ -22,20 +22,137 @@ class positionService {
         $this->db_connection = connectDB::getInstance()->getConnection();
     }
 
-    public function updatePosition() {
-      
+  /**
+  * update a operator position in a line. 
+  * 
+  * @param int $line_id
+  * @param int $op_id
+  * @param int $replace_id
+  *
+  * @return boolean true if update successfully
+  */ 
+    public function updateOperatorPosition($line_id, $op_id, $position_val, $replace_id) {
+      if ($line_id == NULL || $op_id == NULL || $replace_id == NULL) {
+          return false;
+      }
+      $query = 'UPDATE operator SET position = :position_val, replace_id = :replace_id WHERE op_id = :op_id AND line_id = :line_id';
+      $stmt = $this->db_connection->prepare($query);
+      $stmt->bindParam(':position_val', $position_val, PDO::PARAM_INT);
+      $stmt->bindParam(':replace_id', $replace_id, PDO::PARAM_INT);
+      $stmt->bindParam(':line_id', $line_id, PDO::PARAM_INT);
+      $stmt->bindParam(':op_id', $op_id, PDO::PARAM_INT);
+      $result = $stmt->execute();
+      return $result;
     }
 
-    public function updateState() {
+    /**
+  * update a worker status in worker table. 
+  * 
+  * @param int $worker_id
+  * @param int $status
 
+  * @return boolean true if update successfully
+  */ 
+    public function updateWorkerStatus($worker_id, $status) {
+        if ($worker_id == NULL || $status == NULL) {
+            return false;
+        }
+        $query = 'UPDATE worker SET status = :status WHERE worker_id = :worker_id';
+        $stmt = $this->db_connection->prepare($query);
+        $stmt->bindParam(':status', $status, PDO::PARAM_INT);
+        $stmt->bindParam(':worker_id', $worker_id, PDO::PARAM_INT);
+        $result = $stmt->execute();
+        return $result;
     }
 
-    public function getListOfWaiter() {
-
+    public function getFillinWorkers() {
+        $query = 'SELECT * FROM worker, operator WHERE worker.worker_id = operator.replace_id AND operator.position = 2';
+        $stmt = $this->db_connection->prepare($query);
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $stmt->execute();
+        $resultSet = $stmt->fetchAll(); 
+        if (count($resultSet) != 0) {
+            $returnArr = [];
+            foreach($resultSet as $worker){
+              $newTemp = new Worker(
+                $worker["worker_id"],
+                $worker["ava"],
+                $worker["name"],
+                $worker["type"],
+                $worker["status"]
+              );
+                
+              array_push($returnArr, $newTemp);
+            }
+            return $returnArr;
+        }
+        return false;
     }
 
-    public function getLineByID() {
+    public function getWorkersByLineID($line_id) {
+        if ($line_id == NULL) {
+            return false;
+        }
+        $query = 'SELECT * FROM (SELECT ava as ori_ava, worker_id as ori_id, name as ori_name, type as ori_type, status as ori_status, replace_id FROM operator, worker WHERE operator.line_id = :line_id AND operator.original_id = worker.worker_id) AS TEMP LEFT JOIN worker ON TEMP.replace_id = worker.worker_id';
+        $stmt = $this->db_connection->prepare($query);
+        $stmt->bindParam(':line_id', $line_id, PDO::PARAM_INT);
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $stmt->execute();
+        $resultSet = $stmt->fetchAll();
+        if (count($resultSet) > 0) {
+            $arr = [];
+            foreach($resultSet as $row) {
+                array_push($arr, $row);
+            }
+            return $arr;
+        }
+        return false;
+    }
 
+
+    public function getEmptyPosition($line_id) {
+        if ($line_id == NULL) {
+            return false;
+        }
+        $query = 'SELECT * FROM operator WHERE operator.line_id = :line_id AND operator.position = 1';
+        $stmt = $this->db_connection->prepare($query);
+        $stmt->bindParam(':line_id', $line_id, PDO::PARAM_INT);
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $stmt->execute();
+        $resultSet = $stmt->fetchAll();
+        if (count($resultSet) > 0) {
+            $arr = [];
+            foreach($resultSet as $row) {
+                $temp = new Operator(
+                    $row["op_id"],
+                    $row["line_id"],
+                    $row["position"],
+                    $row["original_id"],
+                    $row["replace_id"]
+                );
+                array_push($arr, $temp);
+            }
+            return $arr;
+        }
+        return false;
+    }
+
+
+
+    public function getFreeWaterSpiders() {
+        $query = 'SELECT * FROM worker WHERE worker.status = 1 AND worker.type = 1';
+        $stmt = $this->db_connection->prepare($query);
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $stmt->execute();
+        $resultSet = $stmt->fetchAll();
+        if (count($resultSet) > 0) {
+            $arr = [];
+            foreach($resultSet as $row) {
+                array_push($arr, $row);
+            }
+            return $arr;
+        }
+        return false;
     }
 }
 
