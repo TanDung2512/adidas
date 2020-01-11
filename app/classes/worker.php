@@ -17,24 +17,24 @@
    /** @var string $name */
    public $name;
 
-   /** @var string $skill_id */
-   public $skill_id;
-
-   /** @var int $type */
+   /** @var string $type */
    public $type;
+
+   /** @var int $status */
+   public $status;
 
    public function __construct(
      $worker_id,
      $ava,
      $name,
-     $skill_id,
-     $type
+     $type,
+     $status
    ){
     $this->worker_id = $worker_id;
     $this->ava = $ava;
     $this->name = $name;
-    $this->skill_id = $skill_id;
     $this->type = $type;
+    $this->status = $status;
    }
 
    public function get_json(){
@@ -42,8 +42,8 @@
       "worker_id" => $this->worker_id,
       "ava" => $this->ava,
       "name" => $this->name,
-      "skill_id" => $this->skill_id,
       "type" => $this->type,
+      "status" => $this->status,
   );
 
   return json_encode($json);

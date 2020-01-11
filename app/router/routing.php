@@ -41,6 +41,27 @@ Router::GET('/waiter', function(){
     $waiter->render();
 });
 
+Router::GET('/line-supervisor/noti', function(){
+    
+});
+
+Router::GET('/line-supervisor/line-workers', function(){
+    
+});
+
+Router::POST('/line-supervisor/confirm', function(){
+    
+});
+
+Router::GET('/tv-notification/assign-workers', function(){
+    
+});
+
+Router::GET('/manager', function(){
+    
+});
+
+
 $action = $_SERVER['REQUEST_URI'];
 $action = str_replace("adidas/", "", $action);
 Router::dispatch($action);
