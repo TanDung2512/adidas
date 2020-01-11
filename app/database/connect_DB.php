@@ -14,7 +14,7 @@ class connectDB {
   private $host = 'localhost';
   private $user = 'root';
   private $pass = '';
-  private $name = 'ass';
+  private $name = 'adidas';
 
 /**
   * A database connection is established.

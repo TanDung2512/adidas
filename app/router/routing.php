@@ -10,6 +10,8 @@ require_once __DIR__ . "/../controllers/LineSuperController.php";
 require_once __DIR__ . "/../controllers/ManagerController.php";
 require_once __DIR__ . "/../controllers/WaiterController.php";
 require_once __DIR__ . "/../controllers/LoginController.php";
+require_once __DIR__ . "/../controllers/TestDBController.php";
+
 
 define("ROOT_DIR", "adidas");
 
@@ -17,6 +19,11 @@ define("ROOT_DIR", "adidas");
 Router::GET('/', function(){
     $login = new LoginController();
     $login->render();
+});
+
+Router::GET('/test-db', function(){
+    $testDB = new TestDBController();
+    $testDB->render();
 });
 
 Router::GET('/line-supervisor', function(){

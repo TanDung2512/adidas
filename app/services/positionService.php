@@ -23,7 +23,7 @@ class positionService {
     }
 
     public function updatePosition() {
-
+      
     }
 
     public function updateState() {
