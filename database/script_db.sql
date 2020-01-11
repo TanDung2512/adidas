@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 11, 2020 at 05:52 AM
+-- Generation Time: Jan 11, 2020 at 06:55 AM
 -- Server version: 10.1.39-MariaDB
 -- PHP Version: 7.3.5
 
@@ -43,7 +43,9 @@ CREATE TABLE `line` (
 CREATE TABLE `operator` (
   `op_id` int(255) NOT NULL,
   `position` char(1) NOT NULL,
-  `line_id` int(11) NOT NULL
+  `line_id` int(11) NOT NULL,
+  `original_id` int(11) NOT NULL,
+  `replace_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -68,7 +70,8 @@ CREATE TABLE `worker` (
   `worker_id` int(255) NOT NULL,
   `name` varchar(255) NOT NULL,
   `type` char(1) NOT NULL,
-  `skill_id_ref` int(11) NOT NULL
+  `skill_id_ref` int(11) NOT NULL,
+  `status` char(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -87,7 +90,9 @@ ALTER TABLE `line`
 --
 ALTER TABLE `operator`
   ADD PRIMARY KEY (`op_id`),
-  ADD KEY `fk_foreign_key_line_id` (`line_id`);
+  ADD KEY `fk_foreign_key_line_id` (`line_id`),
+  ADD KEY `fk_foreign_key_original_id` (`original_id`),
+  ADD KEY `fk_foreign_key_replace_id` (`replace_id`);
 
 --
 -- Indexes for table `skill`
@@ -144,7 +149,9 @@ ALTER TABLE `line`
 -- Constraints for table `operator`
 --
 ALTER TABLE `operator`
-  ADD CONSTRAINT `fk_foreign_key_line_id` FOREIGN KEY (`line_id`) REFERENCES `line` (`line_id`);
+  ADD CONSTRAINT `fk_foreign_key_line_id` FOREIGN KEY (`line_id`) REFERENCES `line` (`line_id`),
+  ADD CONSTRAINT `fk_foreign_key_original_id` FOREIGN KEY (`original_id`) REFERENCES `worker` (`worker_id`),
+  ADD CONSTRAINT `fk_foreign_key_replace_id` FOREIGN KEY (`replace_id`) REFERENCES `worker` (`worker_id`);
 
 --
 -- Constraints for table `worker`
