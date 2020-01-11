@@ -24,25 +24,25 @@
                 >&times;</span
             >
             <div class="modal-content">
-                <div class="modal-ava">
+                <div id = "data-ava" class="modal-ava">
                     <img src="app/assets/images/avatar1.jpg" />
                 </div>
-                <div class="modal-name">
+                <div id = "data-name" class="modal-name">
                     Thinh Tran
                 </div>
-                <div class="worker-id">
+                <div id = "data-id" class="worker-id">
                     16525578
                 </div>
-                <div class="worker-type">
+                <div id = "data-type" class="worker-type">
                     Standard
                 </div>
-                <div class="worker-position">
+                <div id = "data-position" class="worker-position">
                     L3 - A1
                 </div>
-                <div class="worker-skill">
+                <div id = "data-skill" class="worker-skill">
                     attaching
                 </div>
-                <div class="worker-status">
+                <div id = "data-status" class="worker-status">
                     Working
                 </div>
                 <div class="status-btn">
@@ -59,19 +59,38 @@
 <?php
 // print_r($_REQUEST["line_workers"]);
 foreach($_REQUEST["line_workers"] as $w) { 
+    $data = " ";
+    foreach($w as $key => $property){
+        if(is_numeric($key)){
+            $key = (string)$key;
+        }
+
+        $str = "data-" . $key . "=" . "\"" .$property . "\" ";
+        $data = $data . $str;
+    }
     if ($w["position"] == 0) {
+
+        // echo $data;
         echo '<div
         class="green-worker"
-        onclick="document.getElementById("id01").style.display="block""
+        onclick="pushModal(this)"
+        ' . $data .' 
     >
         <img src="app/assets/images/worker.png" alt="worker" />
     </div>';
     } else if ($w["position"] == 1) {
-        echo '<div class="red-worker">
+        echo '<div class="red-worker" 
+        onclick="pushModal(this)"
+        ' . $data . '
+        >
+
         <img src="app/assets/images/worker.png" alt="worker" />
     </div>';
     } else {
-        echo '<div class="yellow-worker">
+        echo '<div class="yellow-worker"
+        onclick="pushModal(this)"
+        ' . $data . '
+        >
         <img src="app/assets/images/worker.png" alt="worker" />
     </div>';
     }}
@@ -91,3 +110,22 @@ foreach($_REQUEST["line_workers"] as $w) {
 <div class="yellow-worker">
     <img src="app/assets/images/worker.png" alt="worker" />
 </div> -->
+
+<script> 
+    function pushModal(worker){
+
+        console.log($(worker).data("ori_name"));
+        let children = $("#id01 div[id^='data-']");
+        $.each(children, function(child){
+            let id = $(this).attr("id").replace('data-','');
+            if(id == "ava"){
+                $(this).attr("url",$(worker).data("ori_" + id));
+            }
+            else if($(worker).data("ori_" + id)){
+                $(this).text($(worker).data("ori_" + id));
+            }
+        })
+        document.getElementById('id01').style.display='block';
+    }
+
+</script>
