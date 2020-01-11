@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 11, 2020 at 07:24 AM
+-- Generation Time: Jan 11, 2020 at 07:45 AM
 -- Server version: 10.1.39-MariaDB
 -- PHP Version: 7.3.5
 
@@ -56,7 +56,8 @@ CREATE TABLE `operator` (
 
 CREATE TABLE `skill` (
   `worker_skill_id` int(11) NOT NULL,
-  `skill_name` varchar(255) NOT NULL
+  `skill_name` varchar(255) NOT NULL,
+  `worker_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -70,8 +71,7 @@ CREATE TABLE `worker` (
   `worker_id` int(255) NOT NULL,
   `name` varchar(255) NOT NULL,
   `type` char(1) NOT NULL,
-  `status` char(1) NOT NULL,
-  `worker_skill_id_ref` int(11) NOT NULL
+  `status` char(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -98,14 +98,14 @@ ALTER TABLE `operator`
 -- Indexes for table `skill`
 --
 ALTER TABLE `skill`
-  ADD PRIMARY KEY (`worker_skill_id`);
+  ADD PRIMARY KEY (`worker_skill_id`),
+  ADD KEY `fk_foreign_key_worker_id_ref` (`worker_id`);
 
 --
 -- Indexes for table `worker`
 --
 ALTER TABLE `worker`
-  ADD PRIMARY KEY (`worker_id`),
-  ADD KEY `fk_foreign_key_worker_skill_id_ref` (`worker_skill_id_ref`);
+  ADD PRIMARY KEY (`worker_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -154,10 +154,10 @@ ALTER TABLE `operator`
   ADD CONSTRAINT `fk_foreign_key_replace_id` FOREIGN KEY (`replace_id`) REFERENCES `worker` (`worker_id`);
 
 --
--- Constraints for table `worker`
+-- Constraints for table `skill`
 --
-ALTER TABLE `worker`
-  ADD CONSTRAINT `fk_foreign_key_worker_skill_id_ref` FOREIGN KEY (`worker_skill_id_ref`) REFERENCES `skill` (`worker_skill_id`);
+ALTER TABLE `skill`
+  ADD CONSTRAINT `fk_foreign_key_worker_id_ref` FOREIGN KEY (`worker_id`) REFERENCES `worker` (`worker_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
