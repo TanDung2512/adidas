@@ -18,7 +18,9 @@
             // print_r($this->position->getWorkersByLineID(1));
             // echo "<br>";
             // print_r($this->position->getEmptyPosition(1));
-            print_r($this->position->getFreeWaterSpiders());
+            // print_r($this->position->getFreeWaterSpiders());
+            // print_r($this->position->writeLog(1, "huhuuhhuhuhuhuhuhu"));
+            // print_r($this->position->readLog(1));
         }
     }
 ?>

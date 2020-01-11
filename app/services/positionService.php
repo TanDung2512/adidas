@@ -3,6 +3,7 @@
 require_once(__DIR__."/../database/connect_DB.php");
 include_once(__DIR__."/../classes/operator.php");
 include_once(__DIR__."/../classes/worker.php");
+include_once(__DIR__."/../classes/log.php");
 
  /**
   * @package app\services
@@ -149,6 +150,47 @@ class positionService {
             $arr = [];
             foreach($resultSet as $row) {
                 array_push($arr, $row);
+            }
+            return $arr;
+        }
+        return false;
+    }
+
+
+
+    public function writeLog($line_id, $message) {
+        if ($line_id == NULL || $message == NULL) {
+            return false;
+        }
+        $query = 'INSERT INTO log (line_id, message) VALUES (:line_id, :message)';
+        $stmt = $this->db_connection->prepare($query);
+        $stmt->bindParam(':line_id', $line_id, PDO::PARAM_INT);
+        $stmt->bindParam(':message', $message, PDO::PARAM_STR);
+        $result = $stmt->execute();
+        return $result;
+    }
+
+
+    public function readLog($line_id) {
+        if ($line_id == NULL) {
+            return false;
+        }
+        $query = 'SELECT * FROM log WHERE line_id = :line_id';
+        $stmt = $this->db_connection->prepare($query);
+        $stmt->bindParam(':line_id', $line_id, PDO::PARAM_INT);
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $stmt->execute();
+        $resultSet = $stmt->fetchAll();
+        if (count($resultSet) != 0) {
+            $arr = [];
+            foreach($resultSet as $row) {
+                $tmp = new Log(
+                    $row["log_id"],
+                    $row["line_id"],
+                    $row["message"],
+                    $row["time_created"],
+                );
+                array_push($arr, $tmp);
             }
             return $arr;
         }
