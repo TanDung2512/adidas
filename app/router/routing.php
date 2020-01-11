@@ -12,6 +12,8 @@ require_once __DIR__ . "/../controllers/WaiterController.php";
 require_once __DIR__ . "/../controllers/LoginController.php";
 require_once __DIR__ . "/../controllers/TVNotificationController.php";
 require_once __DIR__ . "/../controllers/NotiController.php";
+require_once __DIR__ . "/../controllers/TestDBController.php";
+
 
 define("ROOT_DIR", "adidas");
 
@@ -19,6 +21,11 @@ define("ROOT_DIR", "adidas");
 Router::GET('/', function(){
     $login = new LoginController();
     $login->render();
+});
+
+Router::GET('/test-db', function(){
+    $testDB = new TestDBController();
+    $testDB->render();
 });
 
 Router::GET('/line-supervisor', function(){
@@ -45,6 +52,24 @@ Router::GET('/tv-notification', function(){
 Router::GET('/noti', function(){
     $noti = new NotificationController();
     $noti->render();
+Router::GET('/line-supervisor/noti', function(){
+    
+});
+
+Router::GET('/line-supervisor/line-workers', function(){
+    
+});
+
+Router::POST('/line-supervisor/confirm', function(){
+    
+});
+
+Router::GET('/tv-notification/assign-workers', function(){
+    
+});
+
+Router::GET('/manager', function(){
+    
 });
 
 
