@@ -1,28 +1,31 @@
-.tv2 {
+.tv {
   width: 100%;
   display: flex;
-  justify-content: center;
-  padding: 1rem 6rem; }
-  .tv2 .noti-board2 {
+  justify-content: center; }
+  .tv .noti-board {
     border: 1px solid black;
     border-collapse: collapse;
     width: 100%;
     margin: 10px;
     text-align: center; }
 
-.noti-board2 > tbody > tr:nth-child(odd) {
+.noti-board > tbody > tr:nth-child(odd) {
   background-color: #dcdbdc; }
 
-.noti-board2 > tbody > tr > td {
+.noti-board > tbody > tr > td {
   border: 1px solid black;
-  line-height: 1.5;
   font-size: 2rem; }
-  .noti-board2 > tbody > tr > td .tv-image {
+  .noti-board > tbody > tr > td .tv-image {
     height: 56px;
     width: 56px;
     margin: 0.5rem auto; }
+    .noti-board > tbody > tr > td .tv-image img {
+      object-fit: cover;
+      border-radius: 50%;
+      width: 100%;
+      height: 100%; }
 
-.table-head2 {
+.table-head {
   font-weight: 600;
   color: #fff;
   background: #333333;
