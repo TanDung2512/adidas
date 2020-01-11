@@ -55,7 +55,28 @@
     </div>
 </div>
 
-<div class="white-worker">
+
+<?php
+// print_r($_REQUEST["line_workers"]);
+foreach($_REQUEST["line_workers"] as $w) { 
+    if ($w["position"] == 0) {
+        echo '<div
+        class="green-worker"
+        onclick="document.getElementById("id01").style.display="block""
+    >
+        <img src="app/assets/images/worker.png" alt="worker" />
+    </div>';
+    } else if ($w["position"] == 1) {
+        echo '<div class="red-worker">
+        <img src="app/assets/images/worker.png" alt="worker" />
+    </div>';
+    } else {
+        echo '<div class="yellow-worker">
+        <img src="app/assets/images/worker.png" alt="worker" />
+    </div>';
+    }}
+    ?>
+<!-- <div class="white-worker">
     <img src="app/assets/images/worker.png" alt="worker" />
 </div>
 <div
@@ -69,4 +90,4 @@
 </div>
 <div class="yellow-worker">
     <img src="app/assets/images/worker.png" alt="worker" />
-</div>
+</div> -->
