@@ -85,3 +85,55 @@
     height: 100%;
     object-fit: cover;
     object-position: -297px; }
+
+.operator-container {
+  width: 302.9px !important; }
+
+.operator-modal {
+  height: 437.8px;
+  box-shadow: 6px 6px 10px 0 rgba(0, 0, 0, 0.16);
+  background-color: #00452d; }
+
+.modal-content {
+  padding: 33px 0;
+  color: white;
+  text-align: center; }
+
+.modal-ava {
+  width: 100%;
+  height: 126.2px; }
+
+.modal-ava > img {
+  width: 126.2px;
+  height: 126.2px;
+  object-fit: cover;
+  border-radius: 50%; }
+
+.modal-name {
+  font-size: 29px; }
+
+.worker-id {
+  font-size: 16px; }
+
+.worker-type {
+  font-size: 20px;
+  font-weight: bold; }
+
+.worker-position {
+  font-size: 18px;
+  font-weight: normal; }
+
+.worker-skill {
+  font-size: 16px;
+  font-weight: normal; }
+
+.worker-status {
+  font-size: 24px;
+  font-weight: bold; }
+
+.status-btn > button {
+  width: 109px;
+  height: 36px;
+  border-radius: 11px;
+  background-color: #ffffff;
+  margin-top: 18.3px; }
