@@ -11,6 +11,7 @@
         }
 
         public function render(){
+            print_r($this->position->getListOfWaiter());
             parent::getView("testDB");
             // print_r($this->position->getFillinWorkers());
             // $this->position->updateWorkerStatus(3, 2);

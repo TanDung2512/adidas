@@ -209,7 +209,7 @@ class positionService {
                     $row["log_id"],
                     $row["line_id"],
                     $row["message"],
-                    $row["time_created"],
+                    $row["time_created"]
                 );
                 array_push($arr, $tmp);
             }
