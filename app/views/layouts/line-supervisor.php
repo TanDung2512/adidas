@@ -2,6 +2,10 @@
     require_once("header.php");
 ?>
 
+<!-- <button onclick="document.getElementById('id037').style.display='block'" class="w3-button w3-black">Red</button>
+<button onclick="document.getElementById('id036').style.display='block'" class="w3-button w3-black">Yellow</button>
+ -->
+
 <div class="supervisor-content">
     <div class="line-container">
         <p class="line-title">LINE <span id="line-name">
@@ -10,7 +14,7 @@
             ?>
         </span></p>
         <div class="line-map">
-            <img src="app/assets/images/map.png" alt="line-map" />
+            <img src="app/assets/images/map.png" alt="line-map" class="map-pic" />
             <div
                 class="position position-M1 green-worker "
                 onclick="pushModal(this)"
@@ -18,7 +22,7 @@
                 <img src="app/assets/images/worker.png" alt="worker" />
             </div>
             <div
-                class=" position position-M2 green-worker"
+                class=" position position-M2 yellow-worker"
                 onclick="pushModal(this)"
             >
                 <img src="app/assets/images/worker.png" alt="worker" />
@@ -53,7 +57,7 @@
 
 <div id="id01" class="w3-modal">
     <div class="operator-container w3-modal-content">
-        <div class="operator-modal w3-container">
+        <div class="operator-modal green-modal w3-container">
             <span
                 onclick="document.getElementById('id01').style.display='none'"
                 class="w3-button w3-display-topright"
@@ -75,8 +79,8 @@
                 <div id = "data-position" class="worker-position">
                     L3 - A1
                 </div>
-                <div id = "data-skill" class="worker-skill">
-                    attaching
+                <div class="worker-skill">
+                   Skill: <span id = "data-skill" >attaching</span> 
                 </div>
                 <div id = "data-status" class="worker-status">
                     Working
@@ -84,6 +88,86 @@
                 <div class="status-btn">
                     <button>
                         Absent
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="id037" class="w3-modal">
+    <div class="operator-container w3-modal-content">
+        <div class="operator-modal red-modal w3-container">
+            <span
+                onclick="document.getElementById('id037').style.display='none'"
+                class="w3-button w3-display-topright"
+                >&times;</span
+            >
+            <div class="modal-content">
+                <div id = "data-ava" class="modal-ava">
+                    <img src="app/assets/images/avatar1.jpg" />
+                </div>
+                <div id = "data-name" class="modal-name">
+                    Thinh Tran Red
+                </div>
+                <div id = "data-id" class="worker-id">
+                    16525578
+                </div>
+                <div id = "data-type" class="worker-type">
+                    Standard
+                </div>
+                <div  class="worker-position">
+                   Skill: <span id = "data-position">L3 - A1</span> 
+                </div>
+                <div id = "data-skill" class="worker-skill">
+                    attaching
+                </div>
+                <div id = "data-status" class="worker-status">
+                
+                </div>
+                <div class="worker-red-absent">
+                        Absent
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="id036" class="w3-modal">
+    <div class="operator-container w3-modal-content">
+        <div class="operator-modal yellow-modal w3-container">
+            <span
+                onclick="document.getElementById('id036').style.display='none'"
+                class="w3-button w3-display-topright"
+                >&times;</span
+            >
+            <div class="modal-content">
+                <div id = "data-ava" class="modal-ava">
+                    <img src="app/assets/images/avatar1.jpg" />
+                </div>
+                <div id = "data-name" class="modal-name">
+                    Thinh Tran Yellow
+                </div>
+                <div id = "data-id" class="worker-id">
+                    16525578
+                </div>
+                <div id = "data-type" class="worker-type">
+                    Multi-skill
+                </div>
+                <div id = "data-position" class="worker-position-yellow">
+                    
+                </div>
+                <div id = "data-skill" class="worker-skill">
+                    attaching
+                </div>
+                <div  class="worker-status">
+                    Assigned to <span id = "data-status">L3 - A1</span>
+                </div>
+                <div class="status-btn">
+                    <button>
+                        Confirm
                     </button>
                 </div>
             </div>
