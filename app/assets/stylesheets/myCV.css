@@ -38,7 +38,7 @@
     .supervisor-content .line-map .map-pic {
       margin: auto;
       display: block;
-      width: 70%;
+      width: 85rem;
       height: auto; }
     .supervisor-content .line-map .position {
       position: absolute;
@@ -48,8 +48,23 @@
         top: 7rem;
         left: 33rem; }
       .supervisor-content .line-map .position-M2 {
+        top: 48rem;
+        left: 32rem;
+        transform: rotate(-90deg); }
+      .supervisor-content .line-map .position-P1 {
         top: 5rem;
         left: 40rem; }
+      .supervisor-content .line-map .position-P2 {
+        top: 17rem;
+        left: 43rem;
+        transform: rotate(180deg); }
+      .supervisor-content .line-map .position-P3 {
+        top: 41rem;
+        left: 43rem; }
+      .supervisor-content .line-map .position-P4 {
+        top: 54rem;
+        left: 43rem;
+        transform: rotate(180deg); }
 
 .line-noti {
   background-color: #f8f8f8;

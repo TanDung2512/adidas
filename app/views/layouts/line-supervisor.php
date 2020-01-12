@@ -2,9 +2,9 @@
     require_once("header.php");
 ?>
 
-<button onclick="document.getElementById('id037').style.display='block'" class="w3-button w3-black">Red</button>
+<!-- <button onclick="document.getElementById('id037').style.display='block'" class="w3-button w3-black">Red</button>
 <button onclick="document.getElementById('id036').style.display='block'" class="w3-button w3-black">Yellow</button>
-
+ -->
 
 <div class="supervisor-content">
     <div class="line-container">

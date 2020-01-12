@@ -50,7 +50,7 @@
         .map-pic {
             margin: auto;
             display: block;
-            width: 70%;
+            width: 85rem;
             height: auto;
         }
         .position {
@@ -62,8 +62,27 @@
                 left: 33rem;
             }
             &-M2 {
+                top: 48rem;
+                left: 32rem;
+                transform: rotate(-90deg);
+            }
+            &-P1 {
                 top: 5rem;
                 left: 40rem;
+            }
+            &-P2 {
+                top: 17rem;
+                left: 43rem;
+                transform: rotate(180deg);
+            }
+            &-P3 {
+                top: 41rem;
+                left: 43rem;
+            }
+            &-P4 {
+                top: 54rem;
+                left: 43rem;
+                transform: rotate(180deg);
             }
         }
     }
