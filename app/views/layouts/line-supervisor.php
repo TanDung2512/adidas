@@ -361,11 +361,16 @@ foreach($_REQUEST["line_workers"] as $w) {
     <img src="app/assets/images/worker.png" alt="worker" />
 </div> -->
 
-<script> 
+<script>
+
+
+    setTimeout(() => {
+        $.ajax({
+            
+        })
+    }, 3000);
+
     function pushModal(worker){
-
-
-
         if($(worker).data("position") == 0) {
             let children = $("#id01 div[id^='data-']");
             $.each(children, function(child){
@@ -435,6 +440,9 @@ foreach($_REQUEST["line_workers"] as $w) {
                 $("#id038 .yellow-modal .status-btn").css("display", "none");
             }
             $("#id038").css("display","block");
+        }
+        else {
+            document.getElementById('id037').style.display='block';
         }
         
     }
