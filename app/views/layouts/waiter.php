@@ -15,14 +15,17 @@
         <?php 
         // print_r($_REQUEST["water_spiders"]);
             foreach($_REQUEST["water_spiders"] as $w) { ?>
-                <tr>
-                    <td><?php echo $w["name"] ?></td>
-                    <td><?php echo $w["worker_id"] ?></td>
-                    <td>Assembly</td>
-                    <td>Marking, ...</td>
-                    <td>Dungggg</td>
-                </tr>
-            <?php }
+        <tr>
+            <td>
+                Mr.
+                <?php echo $w["name"] ?>
+            </td>
+            <td><?php echo $w["worker_id"] ?></td>
+            <td>Assembly</td>
+            <td>Marking, ...</td>
+            <td>Dungggg</td>
+        </tr>
+        <?php }
         ?>
         <!-- <tr>
             <td>Dung Tan</td>
