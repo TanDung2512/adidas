@@ -151,6 +151,7 @@ class positionService {
     }
 
 
+
     public function getEmptyPosition($line_id) {
         if ($line_id == NULL) {
             return false;
@@ -244,22 +245,39 @@ class positionService {
         return false;
     }
 
-    public function getUpdatedTime($table_name) {
-        // if ($line_id == NULL) {
-        //     return false;
-        // }
-        // $query = 'SELECT * FROM log WHERE line_id = :line_id';
-        // $stmt = $this->db_connection->prepare($query);
-        // $stmt->bindParam(':line_id', $line_id, PDO::PARAM_INT);
-        // $stmt->setFetchMode(PDO::FETCH_ASSOC);
-        // $stmt->execute();
-        // $resultSet = $stmt->fetchAll();
-        // if (count($resultSet) != 0) {
-        //     $arr = [];
-        //     print_r($row);
-        //     return 
-        // }
-        // return false;
+    public function getUpdatedTimeByName($table_name) {
+
+        $query = 'SELECT UPDATE_TIME, TABLE_SCHEMA, TABLE_NAME
+        FROM information_schema.tables
+        WHERE TABLE_NAME = :table_name
+        ORDER BY UPDATE_TIME DESC, TABLE_SCHEMA, TABLE_NAME';
+
+        $stmt = $this->db_connection->prepare($query);
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $stmt->bindParam(':table_name', $table_name, PDO::PARAM_STR);
+        $stmt->execute();
+        $resultSet = $stmt->fetchAll();
+        if (count($resultSet) != 0) {
+        print_r($resultSet[0]);
+        return $resultSet[0];
+        }
+        return false;  
+    }
+    public function getUpdatedTime() {
+
+        $query = 'SELECT UPDATE_TIME, TABLE_SCHEMA, TABLE_NAME
+                    FROM information_schema.tables
+                    WHERE TABLE_SCHEMA = "adidas"
+                    ORDER BY UPDATE_TIME DESC, TABLE_SCHEMA, TABLE_NAME';
+        $stmt = $this->db_connection->prepare($query);
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $stmt->execute();
+        $resultSet = $stmt->fetchAll();
+        if (count($resultSet) != 0) {
+            print_r($resultSet);
+            return $resultSet;
+        }
+        return false;
     }
 
     public function writeLog($line_id, $message) {

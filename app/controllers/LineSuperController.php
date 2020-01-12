@@ -46,6 +46,10 @@
             // print_r($freeWaters);
         }
 
+        // public function isUpdated($table_name, $currentTime) {
+        //     $this->posiService->getUpdatedTimeByName($table_name);
+        // }
+
         public function render(){
             $_REQUEST["line_workers"] = $this->getLineWorkers(1);
             $_REQUEST["line_name"] = $this->getLineName(1);
