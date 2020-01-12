@@ -390,11 +390,13 @@ foreach($_REQUEST["line_workers"] as $w) {
                     data: {
                         line_id: $("#line-name").text(),
                         ori_id: $(worker).data("ori_id"),
-                        worker_id: $(worker).data("worker_id")
+                        replace_worker_id: $(worker).data("worker_id"),
+                        replace_name: $(worker).data("name")
                     }
                 }).done(function (data) {
-                    if ($data == 1) {
+                    if (data == 1) {
                         document.getElementById('id01').style.display='none';
+                        location.reload();
                     }
                 })
             })

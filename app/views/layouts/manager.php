@@ -21,7 +21,6 @@
                 </tr>
                 ';
             }
-
         }
         else {
             echo '
@@ -32,16 +31,31 @@
             </tr>
             ';
         }
-
         ?>
     </table>
 </div>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
   $(document).ready(function() {
     if (window.location.href.indexOf("manager") > -1) {
       document.getElementById("manager-title").classList.add("manager-page") 
     }
+    setTimeout(() => {
+        $.ajax({
+            method: "GET",
+            url: "/adidas/manager/raw-data",
+        }).done(function (data) {
+            let html = ``;
+            data = JSON.parse(data);
+            for (let i of data) {
+                html += `<tr><td> ${i["line_id"]} </td>
+                             <td>${i["workers_num"]}</td>
+                             <td>${i["curr"]}</td>   
+                            </tr>`
+            }
+            $(".noti-board2 tr").not(":first").remove();
+            $(".noti-board2").append(html);
+        })
+    }, 3000);
   });
 </script>

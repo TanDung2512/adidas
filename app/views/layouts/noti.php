@@ -60,5 +60,26 @@
         if (window.location.href.indexOf("noti") > -1) {
             document.getElementById("noti-title").classList.add("manager-page");
         }
+        setTimeout(() => {
+            $.ajax({
+                method: "GET",
+                url: "/adidas/noti/raw-data",
+            }).done(function (data) {
+                let html = "";
+                data = JSON.parse(data);
+                for (let i of data) {
+                    html += `<li>
+                                <div>
+                                    ${i["message"]}
+                                </div>
+                                <div>
+                                    ${i["time_created"]}
+                                </div>
+                            </li>`;
+                }
+                $(".a li").remove();
+                $(".a").append(html);
+            })
+        }, 3000);
     });
 </script>
