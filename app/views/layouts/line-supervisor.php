@@ -14,106 +14,55 @@
             print_r($_REQUEST["line_name"]);
             ?>
         </span></p>
+
         <div class="line-map">
             <div class="map-pic">
                 <img src="app/assets/images/map.png" alt="line-map"  />
-                <div
-                class="position position-M1 green-worker "
-                onclick="pushModal(this)"
-            >
-                <img src="app/assets/images/worker.png" alt="worker" />
+
+            <?php
+            // print_r($_REQUEST["line_workers"]);
+            foreach($_REQUEST["line_workers"] as $w) { 
+                $data = " ";
+                foreach($w as $key => $property){
+                    if(is_numeric($key)){
+                        $key = (string)$key;
+                    }
+
+                    $str = "data-" . $key . "=" . "\"" .$property . "\" ";
+                    $data = $data . $str;
+                }
+
+
+                if ($w["position"] == 0) {
+                    echo '<div
+                    class="position position-'. $w["op_name"] . ' green-worker"
+                    onclick="pushModal(this)"
+                    ' . $data .' 
+                >
+                    <img src="app/assets/images/worker.png" alt="worker" />
+                </div>';
+                } else if ($w["position"] == 1) {
+                    echo '<div class="position position-'. $w["op_name"] . ' red-worker" 
+                    onclick="pushModal(this)"
+                    ' . $data . '
+                    >
+
+                    <img src="app/assets/images/worker.png" alt="worker" />
+                </div>';
+                } else {
+                    echo '<div class="position position-'. $w["op_name"] . ' yellow-worker"
+                    onclick="pushModal(this)"
+                    ' . $data . '
+                    >
+                    <img src="app/assets/images/worker.png" alt="worker" />
+                </div>';
+                }}
+                ?>
+
+                
             </div>
-            <div
-                class=" position position-M2 yellow-worker"
-                onclick="pushModal(this)"
-            >
-                <img src="app/assets/images/worker.png" alt="worker" />
-            </div>
-            <div
-                class=" position position-P1 green-worker"
-                onclick="pushModal(this)"
-            >
-                <img src="app/assets/images/worker.png" alt="worker" />
-            </div>
-            <div
-                class=" position position-P2 green-worker"
-                onclick="pushModal(this)"
-            >
-                <img src="app/assets/images/worker.png" alt="worker" />
-            </div>
-            <div
-                class=" position position-P3 green-worker"
-                onclick="pushModal(this)"
-            >
-                <img src="app/assets/images/worker.png" alt="worker" />
-            </div>
-            <div
-                class=" position position-P4 green-worker"
-                onclick="pushModal(this)"
-            >
-                <img src="app/assets/images/worker.png" alt="worker" />
-            </div>
-            <div
-                class=" position position-A1 green-worker"
-                onclick="pushModal(this)"
-            >
-                <img src="app/assets/images/worker.png" alt="worker" />
-            </div>
-            <div
-                class=" position position-A2 green-worker"
-                onclick="pushModal(this)"
-            >
-                <img src="app/assets/images/worker.png" alt="worker" />
-            </div>
-            <div
-                class=" position position-C1 green-worker"
-                onclick="pushModal(this)"
-            >
-                <img src="app/assets/images/worker.png" alt="worker" />
-            </div>
-            <div
-                class=" position position-C2 green-worker"
-                onclick="pushModal(this)"
-            >
-                <img src="app/assets/images/worker.png" alt="worker" />
-            </div>
-            <div
-            class=" position position-L1 green-worker"
-            onclick="pushModal(this)"
-        >
-            <img src="app/assets/images/worker.png" alt="worker" />
-        </div>
-        <div
-        class=" position position-L2 green-worker"
-        onclick="pushModal(this)"
-    >
-        <img src="app/assets/images/worker.png" alt="worker" />
-    </div>
-            <div
-                class=" position position-A3 green-worker"
-                onclick="pushModal(this)"
-            >
-                <img src="app/assets/images/worker.png" alt="worker" />
-            </div>
-            <div
-                class=" position position-A4 green-worker"
-                onclick="pushModal(this)"
-            >
-                <img src="app/assets/images/worker.png" alt="worker" />
-            </div>
-            <div
-                class=" position position-C3 green-worker"
-                onclick="pushModal(this)"
-            >
-                <img src="app/assets/images/worker.png" alt="worker" />
-            </div>
-            <div
-                class=" position position-C4 green-worker"
-                onclick="pushModal(this)"
-            >
-                <img src="app/assets/images/worker.png" alt="worker" />
-            </div>
-            </div>
+    
+
            
         </div>
     </div>
@@ -314,75 +263,52 @@
     </div>
 </div>
 
-<?php
-// print_r($_REQUEST["line_workers"]);
-foreach($_REQUEST["line_workers"] as $w) { 
-    $data = " ";
-    foreach($w as $key => $property){
-        if(is_numeric($key)){
-            $key = (string)$key;
-        }
-
-        $str = "data-" . $key . "=" . "\"" .$property . "\" ";
-        $data = $data . $str;
-    }
-    if ($w["position"] == 0) {
-        echo '<div
-        class="green-worker"
-        onclick="pushModal(this)"
-        ' . $data .' 
-    >
-        <img src="app/assets/images/worker.png" alt="worker" />
-    </div>';
-    } else if ($w["position"] == 1) {
-        echo '<div class="red-worker" 
-        onclick="pushModal(this)"
-        ' . $data . '
-        >
-
-        <img src="app/assets/images/worker.png" alt="worker" />
-    </div>';
-    } else {
-        echo '<div class="yellow-worker"
-        onclick="pushModal(this)"
-        ' . $data . '
-        >
-        <img src="app/assets/images/worker.png" alt="worker" />
-    </div>';
-    }}
-    ?>
-<!-- <div class="white-worker">
-    <img src="app/assets/images/worker.png" alt="worker" />
-</div>
-<div
-    class="green-worker"
-    onclick="document.getElementById('id01').style.display='block'"
->
-    <img src="app/assets/images/worker.png" alt="worker" />
-</div>
-<div class="red-worker">
-    <img src="app/assets/images/worker.png" alt="worker" />
-</div>
-<div class="yellow-worker">
-    <img src="app/assets/images/worker.png" alt="worker" />
-</div> -->
-
-<<<<<<< HEAD
-<script> 
-    function pushModal(worker){
-        console.log($(worker).data("position") )
-=======
 <script>
-
-
+    
     setTimeout(() => {
         $.ajax({
-            
+            method: "GET",
+            url: "/adidas/line-supervisor/raw-data",
+        }).done(function (data) {
+            let html = ``;
+            data = JSON.parse(data);
+
+            for(let emp of data) {
+                let temp = "";
+                for(let i in emp) {
+                    temp += ` data-${i}= "${emp[i]}" `
+                }
+                
+                
+                let color = "";
+                if(emp["position"] == 0) {
+                    color+="green-worker";
+                }
+                else if(emp["position"] == 1) {
+                    color+="red-worker";
+                }
+                else {
+                    color+="yellow-worker";
+                }
+                
+                html += `
+                    <div
+                        class="position position-${emp["op_name"]} ${color}"
+                        onclick="pushModal(this)"
+                        ${temp} 
+                    >
+                        <img src="app/assets/images/worker.png" alt="worker" />
+                    </div>
+                 `;
+            }
+            console.log(html);
+            $(".line-map .map-pic div").remove();
+            $(".line-map .map-pic").append(html);
         })
     }, 3000);
 
+
     function pushModal(worker){
->>>>>>> 703d0cb847c00befd4261c88010d1bd38e1d44dc
         if($(worker).data("position") == 0) {
             let children = $("#id01 div[id^='data-']");
             $.each(children, function(child){
@@ -394,23 +320,11 @@ foreach($_REQUEST["line_workers"] as $w) {
                     $(this).text($(worker).data("ori_" + id));
                 }
             })
-<<<<<<< HEAD
-            document.getElementById('id01').style.display='block';
-        }
-        else {
-            // $("#id01").find(".status-btn>button").text("Confirm")
-            $("#id037").on("click", function(){
-        else if ($(worker).data("position") == 2) {
-            $("#id01").find(".status-btn>button").text("Confirm")
-            $("#id01").find(".status-btn>button").on("click", function(){
-=======
             $('#id01').css("display","block");
         }
         else if ($(worker).data("position") == 2 || $(worker).data("position") == 3) {
             $("#id038").find(".status-btn>button").on("click", function(){
->>>>>>> 703d0cb847c00befd4261c88010d1bd38e1d44dc
                 //call ajax;
-                console.log("adf", $(worker).data("worker_id"))
                 $.ajax({
                     method: "POST",
                     url: "/adidas/line-supervisor/confirm",
@@ -428,22 +342,8 @@ foreach($_REQUEST["line_workers"] as $w) {
                         location.reload();
                     }
                 });
-            })
-            let children = $("#id037 div[id^='data-']");
-            $.each(children, function(child){
-                let id = $(this).attr("id").replace('data-','');
-                if(id == "ava"){
-                    $(this).attr("url",$(worker).data("ori_" + id));
-                }
-                else if($(worker).data("ori_" + id)){
-                    $(this).text($(worker).data("ori_" + id));
-                }
-                })
-            })
-<<<<<<< HEAD
-            document.getElementById('id037').style.display='block';
-        }
-=======
+            });
+
             let children = $("#id038 .red-modal div[id^='data-']");
             
             $.each(children, function(child){
@@ -473,8 +373,7 @@ foreach($_REQUEST["line_workers"] as $w) {
                     $(this).text($(worker).data(id));
                 }
             })
-            
-            if($(worker).data("position") == 3) {
+             if($(worker).data("position") == 3) {
                 $("#id038 .yellow-modal .status-btn").css("display", "none");
             }
             $("#id038").css("display","block");
@@ -483,7 +382,6 @@ foreach($_REQUEST["line_workers"] as $w) {
             document.getElementById('id037').style.display='block';
         }
         
->>>>>>> 703d0cb847c00befd4261c88010d1bd38e1d44dc
     }
 
 </script>
