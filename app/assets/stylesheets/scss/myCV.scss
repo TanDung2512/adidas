@@ -15,7 +15,39 @@
         // height: 800px;
         position: relative;
         margin: auto;
-        img {
+        .green-worker {
+            width: 100px;
+            height: 70x;
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: -96px;
+            }
+        }
+
+        .red-worker {
+            width: 100px;
+            height: 70px;
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: -197px;
+            }
+        }
+
+        .yellow-worker {
+            width: 100px;
+            height: 100px;
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: -297px;
+            }
+        }
+        .map-pic {
             margin: auto;
             display: block;
             width: 70%;
@@ -23,9 +55,15 @@
         }
         .position {
             position: absolute;
+            width: 100px;
+            height: 100px;
             &-M1 {
-                top: 1rem;
-                left: 1rem;
+                top: 7rem;
+                left: 33rem;
+            }
+            &-M2 {
+                top: 5rem;
+                left: 40rem;
             }
         }
     }
@@ -47,13 +85,13 @@
     .noti-container {
         // padding: 1rem 2rem;
         font-size: 20px;
-        & ul>li {
+        & ul > li {
             padding: 0.5rem 0;
         }
-        & ul>li:nth-child(odd) {
+        & ul > li:nth-child(odd) {
             background-color: #dcdbdc;
         }
-        & ul>li {
+        & ul > li {
             padding: 0.5rem 2rem;
             display: flex;
             justify-content: space-between;
@@ -126,8 +164,31 @@
 
 .operator-modal {
     height: 437.8px;
+}
+
+.green-modal {
     box-shadow: 6px 6px 10px 0 rgba(0, 0, 0, 0.16);
     background-color: #00452d;
+}
+
+.red-modal {
+    box-shadow: 6px 6px 10px 0 rgba(0, 0, 0, 0.16);
+    background-color: #cc0e03;
+}
+
+.worker-red-absent {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 40px;
+}
+
+.yellow-modal {
+    box-shadow: 6px 6px 10px 0 rgba(0, 0, 0, 0.16);
+    background-color: #ffa80c;
+}
+
+.worker-position-yellow {
+    height: 35px;
 }
 
 .modal-content {
@@ -141,7 +202,7 @@
     height: 126.2px;
 }
 
-.modal-ava>img {
+.modal-ava > img {
     width: 126.2px;
     height: 126.2px;
     object-fit: cover;
@@ -176,7 +237,7 @@
     font-weight: bold;
 }
 
-.status-btn>button {
+.status-btn > button {
     width: 109px;
     height: 36px;
     border-radius: 11px;
