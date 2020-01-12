@@ -39,6 +39,11 @@ Router::GET('/manager', function(){
     $manager->render();
 });
 
+Router::GET('/manager/raw-data', function(){
+    $manager = new ManagerController();
+    echo json_encode($manager->getCurrentEmp());
+});
+
 Router::GET('/waiting-list', function(){
     $waiter = new WaiterController();
     $waiter->render();
@@ -49,10 +54,19 @@ Router::GET('/tv-notification', function(){
     $waiter->render();
 });
 
+Router::GET('/tv-notification/raw-data', function(){
+    $waiter = new TVNotificationController();
+    echo json_encode($waiter->getTV());
+});
 
 Router::GET('/noti', function(){
     $noti = new NotificationController();
     $noti->render();
+});
+
+Router::GET('/noti/raw-data', function (){
+    $noti = new NotificationController();
+    echo json_encode($noti->getLog(1));
 });
 
 // Router::GET('/line-supervisor/noti', function(){
