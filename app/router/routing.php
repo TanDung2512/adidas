@@ -49,6 +49,11 @@ Router::GET('/waiting-list', function(){
     $waiter->render();
 });
 
+Router::GET('/waiting-list/raw-data', function(){
+    $waiter = new WaiterController();
+    echo json_encode($waiter->getWaterSpiders());
+});
+
 Router::GET('/tv-notification', function(){
     $waiter = new TVNotificationController();
     $waiter->render();
