@@ -1,10 +1,25 @@
-@media (max-width: 1024px) {
+@media (max-width: 1025px) {
     html {
         font-size: 1.5vw !important;
     }
     .position {
         width: 4rem !important;
         height: 4rem !important;
+    }
+    .green-worker {
+        img {
+            object-position: -4rem !important;
+        }
+    }
+    .red-worker {
+        img {
+            object-position: -8rem !important;
+        }
+    }
+    .yellow-worker {
+        img {
+            object-position: -12rem !important;
+        }
     }
 }
 .supervisor-content {
@@ -23,7 +38,8 @@
         // height: 80vh;
         // height: 800px;
         position: relative;
-        margin: auto;
+        // margin: auto;
+        text-align: center;
         .green-worker {
             width: 100px;
             height: 70x;
@@ -31,7 +47,7 @@
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
-                object-position: -100px;
+                object-position: -6.25rem;
             }
         }
 
@@ -42,7 +58,7 @@
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
-                object-position: -200px;
+                object-position: -12.5rem;
             }
         }
 
@@ -53,85 +69,99 @@
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
-                object-position: -300px;
+                object-position: -18.75rem;
             }
         }
         .map-pic {
             margin: auto;
-            display: block;
-            width: 70%;
-            // max-width: 100vw;
+            display: inline-block;
+            max-width: 100vw;
+            width: 60rem;
+            position: relative;
             height: auto;
+            img {
+                width: 100%;
+            }
         }
         .position {
             position: absolute;
             width: 6.25rem;
             height: 6.25rem;
             &-M1 {
-                top: 5rem;
-                left: 33rem;
+                top: 3.6rem;
+                left: 10.5rem;
             }
             &-M2 {
-                top: 48rem;
-                left: 32rem;
-                transform: rotate(-90deg);
+                bottom: 3.6rem;
+                left: 10.5rem;
+                transform: rotate(-180deg);
             }
             &-P1 {
-                top: 5rem;
-                left: 40rem;
+                top: 3.6rem;
+                left: 15.5rem;
             }
+
             &-P2 {
-                top: 15.4rem;
-                left: 41rem;
+                top: 11rem;
+                left: 15.5rem;
                 transform: rotate(180deg);
             }
             &-P3 {
-                top: 42.1rem;
-                left: 39rem;
+                bottom: 11rem;
+                left: 16rem;
             }
             &-P4 {
-                top: 52.4rem;
-                left: 40.9rem;
+                bottom: 4rem;
+                left: 16rem;
                 transform: rotate(180deg);
             }
             &-A1 {
-                top: 8.4rem;
-                left: 75.3rem;
+                top: 5.4rem;
+                right: 12rem;
             }
 
             &-A2 {
-                top: 12.4rem;
-                left: 75.9rem;
+                top: 9rem;
+                right: 12.1rem;
                 transform: rotate(180deg);
             }
 
             &-C1 {
-                top: 5rem;
-                left: 69.6rem;
+                top: 3.6rem;
+                right: 17rem;
             }
             &-C2 {
-                top: 15.4rem;
-                left: 70.7rem;
+                top: 11rem;
+                right: 17.1rem;
+                transform: rotate(180deg);
+            }
+            &-L1 {
+                top: 24rem;
+                left: 4rem;
+                transform: rotate(180deg);
+            }
+            &-L2 {
+                top: 24rem;
+                left: 11rem;
+                transform: rotate(180deg);
+            }
+            &-C3 {
+                bottom: 11rem;
+                right: 17rem;
+            }
+            &-C4 {
+                bottom: 4rem;
+                right: 17.1rem;
                 transform: rotate(180deg);
             }
             &-A3 {
-                top: 45.4rem;
-                left: 75.3rem;
+                bottom: 5.4rem;
+                right: 12rem;
             }
 
             &-A4 {
-                top: 49.4rem;
-                left: 75.9rem;
-                transform: rotate(180deg);
-            }
-
-            &-C3 {
-                top: 42.3rem;
-                left: 69.6rem;
-            }
-            &-C4 {
-                top: 52.4rem;
-                left: 70.7rem;
+                bottom: 9rem;
+                right: 12.1rem;
                 transform: rotate(180deg);
             }
         }
@@ -312,7 +342,7 @@
 }
 
 .worker-id {
-    font-size: 16px;
+    font-size: 1rem;
 }
 
 .worker-type {
@@ -321,17 +351,17 @@
 }
 
 .worker-position {
-    font-size: 18px;
+    font-size: 1rem;
     font-weight: normal;
 }
 
 .worker-skill {
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: normal;
 }
 
 .worker-status {
-    font-size: 24px;
+    font-size: 1.5rem;
     font-weight: bold;
 }
 

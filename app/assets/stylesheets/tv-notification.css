@@ -14,7 +14,7 @@
 
 .noti-board > tbody > tr > td {
   border: 1px solid black;
-  font-size: 2rem; }
+  font-size: 1rem; }
   .noti-board > tbody > tr > td .tv-image {
     height: 56px;
     width: 56px;
