@@ -4,6 +4,7 @@
 
 <button onclick="document.getElementById('id037').style.display='block'" class="w3-button w3-black">Red</button>
 <button onclick="document.getElementById('id036').style.display='block'" class="w3-button w3-black">Yellow</button>
+<button onclick="document.getElementById('id038').style.display='block'" class="w3-button w3-black">Red&Yellow</button>
 
 
 <div class="supervisor-content">
@@ -51,6 +52,63 @@
             >
                 <img src="app/assets/images/worker.png" alt="worker" />
             </div>
+
+            <div
+                class=" position position-A1 green-worker"
+                onclick="pushModal(this)"
+            >
+                <img src="app/assets/images/worker.png" alt="worker" />
+            </div>
+
+            <div
+                class=" position position-A2 green-worker"
+                onclick="pushModal(this)"
+            >
+                <img src="app/assets/images/worker.png" alt="worker" />
+            </div>
+
+            <div
+                class=" position position-C1 green-worker"
+                onclick="pushModal(this)"
+            >
+                <img src="app/assets/images/worker.png" alt="worker" />
+            </div>
+
+            <div
+                class=" position position-C2 green-worker"
+                onclick="pushModal(this)"
+            >
+                <img src="app/assets/images/worker.png" alt="worker" />
+            </div>
+
+            <div
+                class=" position position-A3 green-worker"
+                onclick="pushModal(this)"
+            >
+                <img src="app/assets/images/worker.png" alt="worker" />
+            </div>
+
+            <div
+                class=" position position-A4 green-worker"
+                onclick="pushModal(this)"
+            >
+                <img src="app/assets/images/worker.png" alt="worker" />
+            </div>
+
+            <div
+                class=" position position-C3 green-worker"
+                onclick="pushModal(this)"
+            >
+                <img src="app/assets/images/worker.png" alt="worker" />
+            </div>
+
+            <div
+                class=" position position-C4 green-worker"
+                onclick="pushModal(this)"
+            >
+                <img src="app/assets/images/worker.png" alt="worker" />
+            </div>
+
         </div>
     </div>
 </div>
@@ -143,6 +201,7 @@
                 class="w3-button w3-display-topright"
                 >&times;</span
             >
+
             <div class="modal-content">
                 <div id = "data-ava" class="modal-ava">
                     <img src="app/assets/images/avatar1.jpg" />
@@ -175,6 +234,79 @@
     </div>
 </div>
 
+
+
+
+<div id="id038" class="w3-modal">  
+    <div class="operator-container-big w3-modal-content">
+        <div class="operator-modal-big w3-container">
+            <span
+                onclick="document.getElementById('id038').style.display='none'"
+                class="w3-button w3-display-topright"
+                >&times;</span
+            >
+
+            <div class="modal-content red-modal">
+                <div id = "data-ava" class="modal-ava">
+                    <img src="app/assets/images/avatar1.jpg" />
+                </div>
+                <div id = "data-name" class="modal-name">
+                    Thinh Tran Red
+                </div>
+                <div id = "data-id" class="worker-id">
+                    16525578
+                </div>
+                <div id = "data-type" class="worker-type">
+                    Standard
+                </div>
+                <div  class="worker-position">
+                   Skill: <span id = "data-position">L3 - A1</span> 
+                </div>
+                <div id = "data-skill" class="worker-skill">
+                    attaching
+                </div>
+                <div id = "data-status" class="worker-status">
+                
+                </div>
+                <div class="worker-red-absent">
+                        Absent
+                </div>
+            </div>
+
+            <div class="modal-content yellow-modal">
+                <div id = "data-ava" class="modal-ava">
+                    <img src="app/assets/images/avatar1.jpg" />
+                </div>
+                <div id = "data-name" class="modal-name">
+                    Thinh Tran Yellow
+                </div>
+                <div id = "data-id" class="worker-id">
+                    16525578
+                </div>
+                <div id = "data-type" class="worker-type">
+                    Multi-skill
+                </div>
+                <div id = "data-position" class="worker-position-yellow">
+                    
+                </div>
+                <div id = "data-skill" class="worker-skill">
+                    attaching
+                </div>
+                <div  class="worker-status">
+                    Assigned to <span id = "data-status">L3 - A1</span>
+                </div>
+                <div class="status-btn">
+                    <button>
+                        Confirm
+                    </button>
+                </div>
+            </div>
+
+           
+
+        </div>
+    </div>
+</div>
 
 <?php
 // print_r($_REQUEST["line_workers"]);
@@ -248,11 +380,24 @@ foreach($_REQUEST["line_workers"] as $w) {
         else {
             // $("#id01").find(".status-btn>button").text("Confirm")
             $("#id037").on("click", function(){
+        else if ($(worker).data("position") == 2) {
+            $("#id01").find(".status-btn>button").text("Confirm")
+            $("#id01").find(".status-btn>button").on("click", function(){
                 //call ajax;
-                $.post( "line-supervisor/confirm",{
-                    worker_id: $(worker).data("ori_id"),
-                    function(data, status){
-                        alert("Data: " + data + "\nStatus: " + status);
+                console.log("adf", $(worker).data("worker_id"))
+                $.ajax({
+                    method: "POST",
+                    url: "/adidas/line-supervisor/confirm",
+                    data: {
+                        line_id: $("#line-name").text(),
+                        ori_id: $(worker).data("ori_id"),
+                        replace_worker_id: $(worker).data("worker_id"),
+                        replace_name: $(worker).data("name")
+                    }
+                }).done(function (data) {
+                    if (data == 1) {
+                        document.getElementById('id01').style.display='none';
+                        location.reload();
                     }
                 });
             })
@@ -265,6 +410,7 @@ foreach($_REQUEST["line_workers"] as $w) {
                 else if($(worker).data("ori_" + id)){
                     $(this).text($(worker).data("ori_" + id));
                 }
+                })
             })
             document.getElementById('id037').style.display='block';
         }

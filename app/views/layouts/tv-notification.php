@@ -59,5 +59,28 @@
         if (window.location.href.indexOf("tv-notification") > -1) {
             document.getElementById("tv-title").classList.add("manager-page");
         }
+        setTimeout(() => {
+            $.ajax({
+                method: "GET",
+                url: "/adidas/tv-notification/raw-data",
+            }).done(function (data) {
+                let html = ``;
+                data = JSON.parse(data);
+                for (let i of data) {
+                    html += `<tr>
+                                <td>
+                                    <div class="tv-image">
+                                        <img src=${i["ava"]} />
+                                    </div>
+                                </td>
+                                <td>${i["name"]}</td>
+                                <td>${i["line_name"]}</td>
+                                <td>${i["op_name"]}</td>
+                            </tr>`
+                }
+                $(".noti-board tr").not(":first").remove();
+                $(".noti-board").append(html);
+            })
+        }, 3000);
     });
 </script>

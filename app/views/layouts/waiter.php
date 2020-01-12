@@ -3,7 +3,7 @@
 ?>
 
 <div class="tv">
-    <table class="noti-board">
+    <table class="noti-board" id="table-list">
         <tr>
             <!-- <td class="table-head"></td> -->
             <td class="table-head">Operator</td>
@@ -83,7 +83,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
-        if (window.location.href.indexOf("waiter") > -1) {
+        if (window.location.href.indexOf("waiting-list") > -1) {
             document.getElementById("list-title").classList.add("manager-page");
         }
     });

@@ -43,6 +43,7 @@ class positionService {
       $stmt->bindParam(':line_id', $line_id, PDO::PARAM_INT);
       $stmt->bindParam(':op_id', $op_id, PDO::PARAM_STR);
       $result = $stmt->execute();
+      
       return $result;
     }
 
@@ -88,6 +89,32 @@ class positionService {
                 $worker["status"]
               );
               array_push($returnArr, $newTemp);
+            }
+            return $returnArr;
+        }
+        return false;
+    }
+
+
+    public function getFillinWorkersNew() {
+        $query = 'SELECT * FROM worker, operator, line WHERE operator.line_id = line.line_id AND worker.worker_id = operator.replace_id AND operator.position = 2';
+        $stmt = $this->db_connection->prepare($query);
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $stmt->execute();
+        $resultSet = $stmt->fetchAll(); 
+        if (count($resultSet) != 0) {
+            $returnArr = [];
+            foreach($resultSet as $worker){
+              $temp = array(
+                "worker_id" => $worker["worker_id"],
+                "ava" => $worker["ava"],
+                "name" => $worker["name"],
+                "type" => $worker["type"],
+                "status" => $worker["status"],
+                "op_name" => $worker["op_name"],
+                "line_name" => $worker["line_name"]
+              );
+              array_push($returnArr, $temp);
             }
             return $returnArr;
         }

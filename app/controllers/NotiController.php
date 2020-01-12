@@ -11,10 +11,10 @@
         }
         
         public function getLog($line_id) {
-            $_REQUEST["log"] = $this->posiService->readLog($line_id);
+            return $this->posiService->readLog($line_id);
         }
         public function render(){
-            $this->getLog(1);
+            $_REQUEST["log"] = $this->getLog(1);
             parent::getView("noti");
         }
 

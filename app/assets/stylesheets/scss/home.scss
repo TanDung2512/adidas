@@ -17,17 +17,31 @@
     background-color: #dcdbdc;
 }
 
+.w3-button {
+    color: #fff !important;
+}
+
 .noti-board2 > tbody > tr > td {
     border: 1px solid black;
     // padding: 5px;
     line-height: 1.5;
-    font-size: 2rem;
     .tv-image {
         // margin: auto;
         height: 56px;
         width: 56px;
         margin: 0.5rem auto;
     }
+}
+#table-list {
+    // padding: 1rem 4rem;
+    margin: 1rem 0;
+    width: 90%;
+    td {
+        font-size: 1rem;
+    }
+}
+#table-list > tbody > tr > td {
+    line-height: 2;
 }
 
 .table-head2 {

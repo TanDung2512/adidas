@@ -12,11 +12,10 @@
         }
 
         public function getCurrentEmp() {
-            
-            $_REQUEST["manager"] = $this->posiService->getWorkersNumByLineId(1);
+            return $this->posiService->getWorkersNumByLineId(1);
         }
         public function render(){
-            $this->getCurrentEmp();
+            $_REQUEST["manager"] = $this->getCurrentEmp();
             parent::getView("manager");
         }
 

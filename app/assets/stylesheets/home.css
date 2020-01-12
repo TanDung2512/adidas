@@ -13,14 +13,25 @@
 .noti-board2 > tbody > tr:nth-child(odd) {
   background-color: #dcdbdc; }
 
+.w3-button {
+  color: #fff !important; }
+
 .noti-board2 > tbody > tr > td {
   border: 1px solid black;
-  line-height: 1.5;
-  font-size: 2rem; }
+  line-height: 1.5; }
   .noti-board2 > tbody > tr > td .tv-image {
     height: 56px;
     width: 56px;
     margin: 0.5rem auto; }
+
+#table-list {
+  margin: 1rem 0;
+  width: 90%; }
+  #table-list td {
+    font-size: 1rem; }
+
+#table-list > tbody > tr > td {
+  line-height: 2; }
 
 .table-head2 {
   font-weight: 600;
