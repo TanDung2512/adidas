@@ -164,20 +164,17 @@ foreach($_REQUEST["line_workers"] as $w) {
             $("#id01").find(".status-btn").css("display", "none"); 
         }
         else if ($(worker).data("position") == 2) {
-            $("#id01").find(".status-btn>button").text("confirm")
+            $("#id01").find(".status-btn>button").text("Confirm")
             .on("click", function(){
                 //call ajax;
-                $.post( "line-supervisor/confirm",{
-                    worker_id: $(worker).data("ori_id"),
-                    function(data, status){
-                        alert("Data: " + data + "\nStatus: " + status);
-                    });
-                })
+                // $.post( "line-supervisor/commit",{
+                //     worker_id: $(worker).data("ori_id"),
+                //     function(data, status){
+                //     alert("Data: " + data + "\nStatus: " + status);
+                // });
             })
-            
         }
-
-
+        
         document.getElementById('id01').style.display='block';
     }
 
