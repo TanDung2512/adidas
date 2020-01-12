@@ -324,14 +324,22 @@ foreach($_REQUEST["line_workers"] as $w) {
         }
         else if ($(worker).data("position") == 2) {
             $("#id01").find(".status-btn>button").text("Confirm")
-            .on("click", function(){
+            $("#id01").find(".status-btn>button").on("click", function(){
                 //call ajax;
-                $.post( "line-supervisor/confirm",{
-                    worker_id: $(worker).data("ori_id"),
-                    function(data, status){
-                        alert("Data: " + data + "\nStatus: " + status);
+                console.log("adf", $(worker).data("worker_id"))
+                $.ajax({
+                    method: "POST",
+                    url: "/adidas/line-supervisor/confirm",
+                    data: {
+                        line_id: $("#line-name").text(),
+                        ori_id: $(worker).data("ori_id"),
+                        worker_id: $(worker).data("worker_id")
                     }
-                    });
+                }).done(function (data) {
+                    if ($data == 1) {
+                        document.getElementById('id01').style.display='none';
+                    }
+                })
             })
         }
         
