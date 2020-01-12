@@ -45,7 +45,7 @@
         }
 
         public function confirmRedToYellow($line_id, $worker_id, $ori_id) {
-            $res = $this->posiService->updateOperatorPosition($line_id, $ori_id, 2, $worker_id);
+            $res = $this->posiService->updateOperatorPosition($line_id, $ori_id, 3, $worker_id);
             $msg = "Water spider " . $_POST["replace_name"] ."has replaced in line " . $_POST["line_id"];
             $this->posiService->writeLog(1, $msg);
             return $res;

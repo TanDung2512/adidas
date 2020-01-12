@@ -85,7 +85,7 @@ Router::GET('/noti/raw-data', function (){
 
 Router::POST('/line-supervisor/confirm', function(){
     $lineSuper = new LineSuperController();
-    echo $lineSuper->confirmRedToYellow($_POST["line_id"], $_POST["ori_id"], $_POST["worker_id"]);
+    echo $lineSuper->confirmRedToYellow($_POST["line_id"], $_POST["op_id"], $_POST["replace_worker_id"]);
 });
 
 Router::GET('/tv-notification/assign-workers', function(){
