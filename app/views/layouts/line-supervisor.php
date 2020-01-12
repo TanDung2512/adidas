@@ -167,11 +167,12 @@ foreach($_REQUEST["line_workers"] as $w) {
             $("#id01").find(".status-btn>button").text("Confirm")
             .on("click", function(){
                 //call ajax;
-                // $.post( "line-supervisor/commit",{
-                //     worker_id: $(worker).data("ori_id"),
-                //     function(data, status){
-                //     alert("Data: " + data + "\nStatus: " + status);
-                // });
+                $.post( "line-supervisor/confirm",{
+                    worker_id: $(worker).data("ori_id"),
+                    function(data, status){
+                        alert("Data: " + data + "\nStatus: " + status);
+                    }
+                    });
             })
         }
         

@@ -26,12 +26,12 @@
                 return;
             }
             foreach($emptyPos as $pos) {
-                $message = "Worker at " . $pos->op_id . " is absent";
+                $log_message = "Worker at " . $pos->op_id . " is absent";
                 $this->posiService->writeLog(1, $log_message);
 
                 $result = $this->posiService->getFreeWaterSpidersBySkillID($pos->skill_id_ref);
-
-                if($result != false or count($result) > 0){
+                if($result != false && count($result) > 0){
+                    $top = $result[0];
                     $this->posiService->updateOperatorPosition(1, $pos->op_id, 2, $top["worker_id"]);
                     $this->posiService->updateWorkerStatus($top["worker_id"], 2);
                     $log_message = $top["name"] . " is assigned to position " . $pos->op_id . " line 1";
