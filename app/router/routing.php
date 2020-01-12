@@ -69,6 +69,11 @@ Router::GET('/noti', function(){
     $noti->render();
 });
 
+Router::GET('/line-supervisor/raw-data', function(){
+    $lineSuper = new LineSuperController();
+    echo json_encode($lineSuper->getLineWorkers(1));
+});
+
 Router::GET('/noti/raw-data', function (){
     $noti = new NotificationController();
     echo json_encode($noti->getLog(1));
@@ -87,6 +92,8 @@ Router::POST('/line-supervisor/confirm', function(){
     $lineSuper = new LineSuperController();
     echo $lineSuper->confirmRedToYellow($_POST["line_id"], $_POST["op_id"], $_POST["replace_worker_id"]);
 });
+
+
 
 Router::GET('/tv-notification/assign-workers', function(){
     
