@@ -14,9 +14,7 @@
 body,
 html {
   width: 100%;
-  height: 100%;
-  font-size: 16px;
-  font-family: "Source Sans Pro", sans-serif; }
+  height: 100%; }
 
 h1,
 h2,
@@ -94,7 +92,7 @@ header {
       height: 100%;
       width: auto; }
     .app-header .home-logo .text {
-      margin-left: 16px;
+      margin-left: 1rem;
       color: black; }
   .app-header .header-right {
     display: flex;
@@ -105,7 +103,7 @@ header {
       margin-right: 20px; }
     .app-header .header-right .menu {
       display: flex;
-      font-size: 24px;
+      font-size: 1.5rem;
       align-items: baseline;
       color: #707070;
       padding: 0 1rem; }
@@ -265,6 +263,10 @@ page[size="A4"] {
   #template-2 #section-skills .cv-skill-list:first-child {
     min-width: 8cm;
     margin-right: 0; }
+
+@media (max-width: 1920px) {
+  html {
+    font-size: 24px !important; } }
 
 @media (max-width: 1025px) {
   html {
@@ -455,20 +457,23 @@ page[size="A4"] {
     object-position: -297px; }
 
 .operator-container {
-  width: 302.9px !important; }
+  width: 18rem; }
 
 .operator-container-big {
-  width: 50% !important;
+  width: 40rem !important;
   background-color: rgba(0, 0, 0, 0.005) !important; }
+  .operator-container-big .w3-display-topright {
+    right: 1.5rem; }
 
-.operator-modal {
-  height: 437.8px; }
+.w3-display-topright {
+  font-size: 3rem;
+  line-height: 1;
+  padding: 0 1rem; }
 
 .operator-modal-big {
-  height: 437.8px;
   justify-content: space-between;
   display: flex;
-  width: 100% !important; }
+  max-width: 1200px; }
 
 .green-modal {
   box-shadow: 6px 6px 10px 0 rgba(0, 0, 0, 0.16);
@@ -482,42 +487,38 @@ page[size="A4"] {
   padding: 0 !important; }
 
 .worker-red-absent {
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: bold;
-  margin-top: 40px; }
+  margin-top: 2.5rem; }
 
 .yellow-modal {
   box-shadow: 6px 6px 10px 0 rgba(0, 0, 0, 0.16);
   background-color: #ffa80c; }
 
-.worker-position-yellow {
-  height: 35px; }
-
 .modal-content {
-  padding: 33px 0;
+  padding: 2rem;
   color: white;
   text-align: center;
-  width: 100%;
-  max-width: 300px; }
+  width: 18rem; }
 
 .modal-ava {
   width: 100%;
-  height: 126.2px; }
+  height: 7.9rem; }
 
 .modal-ava > img {
-  width: 126.2px;
-  height: 126.2px;
+  width: 7.9rem;
+  height: 7.9rem;
   object-fit: cover;
   border-radius: 50%; }
 
 .modal-name {
-  font-size: 29px; }
+  font-size: 1.8rem; }
 
 .worker-id {
   font-size: 1rem; }
 
 .worker-type {
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: bold; }
 
 .worker-position {
@@ -533,11 +534,11 @@ page[size="A4"] {
   font-weight: bold; }
 
 .status-btn > button {
-  width: 109px;
-  height: 36px;
+  width: 6.8rem;
+  height: 2.25rem;
   border-radius: 11px;
   background-color: #ffffff;
-  margin-top: 18.3px; }
+  margin-top: 1.14rem; }
 
 .cv-footer {
   background-color: #0f141f;
@@ -611,8 +612,10 @@ page[size="A4"] {
   width: 100%;
   display: flex;
   justify-content: center;
-  padding: 1rem 6rem; }
+  padding: 1rem 6rem;
+  font-size: 1.5rem; }
   .tv2 .noti-board2 {
+    font-size: 1.5rem;
     border: 1px solid black;
     border-collapse: collapse;
     width: 100%;
@@ -1220,7 +1223,7 @@ body,
 html {
   width: 100%;
   height: 100%;
-  font-size: 16px;
+  font-size: inherit;
   font-family: Arial, Helvetica, sans-serif;
   margin: 0; }
 

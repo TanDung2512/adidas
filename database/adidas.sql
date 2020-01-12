@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 12, 2020 at 05:40 AM
+-- Generation Time: Jan 12, 2020 at 06:13 AM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.1.32
 
@@ -98,7 +98,14 @@ INSERT INTO `operator` (`op_id`, `op_name`, `line_id`, `position`, `original_id`
 (8, 'C1', 1, 0, 8, 0, 2),
 (9, 'C2', 1, 0, 9, 0, 2),
 (10, 'C3', 1, 1, 12, 0, 2),
-(11, 'C4', 1, 0, 11, 0, 2);
+(11, 'C4', 1, 0, 11, 0, 2),
+(12, 'P3', 1, 0, 16, 0, 1),
+(13, 'P4', 1, 0, 17, 0, 1),
+(14, 'A3', 1, 0, 18, 0, 3),
+(15, 'A4', 1, 0, 19, 0, 3),
+(16, 'L1', 1, 0, 20, 0, 6),
+(17, 'L2', 1, 0, 21, 0, 6),
+(18, 'M2', 1, 0, 22, 0, 5);
 
 -- --------------------------------------------------------
 
@@ -158,7 +165,8 @@ INSERT INTO `skill_dict` (`skill_id`, `skill_name`) VALUES
 (2, 'cement'),
 (3, 'attaching'),
 (4, 'pressing'),
-(5, 'marking');
+(5, 'marking'),
+(6, 'labeling');
 
 -- --------------------------------------------------------
 
@@ -193,7 +201,15 @@ INSERT INTO `worker` (`ava`, `worker_id`, `name`, `type`, `status`) VALUES
 ('https://scontent.fhph1-1.fna.fbcdn.net/v/t1.0-9/79772615_2667088310078722_7318919864918212608_n.jpg?_nc_cat=111&_nc_ohc=6ZN6DhQY_f8AQn3QTC-4Er1fdnenQzzbyr1spAOp8cPeOWrvBvevfED1Q&_nc_ht=scontent.fhph1-1.fna&oh=8ec88f62adbb1aca1f86624e48614114&oe=5EA90DC8', 12, 'Vinh Thai', '0', '0'),
 ('https://scontent.fhph1-2.fna.fbcdn.net/v/t1.0-9/53046653_1206630639518020_5045054673929633792_n.jpg?_nc_cat=105&_nc_ohc=gPAQfTpjv_UAQn-ubzNgmhgvWwm2508lIQRKZMAzfTAYg3bul5TIQ_VHw&_nc_ht=scontent.fhph1-2.fna&oh=7e536546e05b3204607d9ca2c12441a3&oe=5EAF668B', 13, 'Vo Dang Nam', '1', '1'),
 ('https://scontent.fhph1-1.fna.fbcdn.net/v/t1.0-9/14441208_122714714856065_2804188454585435299_n.jpg?_nc_cat=110&_nc_ohc=MQnHlxRwAHMAQnO_AmGHRSzR_sMuSRFLk5ohu2cn-soCl63U3iQEhFbfw&_nc_ht=scontent.fhph1-1.fna&oh=186cd21a0bb18e0292acc380c5fe8b9c&oe=5EA2600E', 14, 'Nguyen Truong Pham', '1', '1'),
-('https://scontent.fhph1-2.fna.fbcdn.net/v/t31.0-8/27503962_400678240354949_6379680550563918517_o.jpg?_nc_cat=106&_nc_ohc=Ok6NzTWX5ysAQns9chOevy2y92r0aTXYaIQjDcYN2g91O9fiNEVPN2cnw&_nc_ht=scontent.fhph1-2.fna&oh=cae62ed2bcf9cd25f816eb4612b9c5e3&oe=5EAE4A21', 15, 'Le Tung Thanh', '2', '0');
+('https://scontent.fhph1-2.fna.fbcdn.net/v/t31.0-8/27503962_400678240354949_6379680550563918517_o.jpg?_nc_cat=106&_nc_ohc=Ok6NzTWX5ysAQns9chOevy2y92r0aTXYaIQjDcYN2g91O9fiNEVPN2cnw&_nc_ht=scontent.fhph1-2.fna&oh=cae62ed2bcf9cd25f816eb4612b9c5e3&oe=5EAE4A21', 15, 'Le Tung Thanh', '2', '0'),
+('https://scontent.fhph1-1.fna.fbcdn.net/v/t1.0-9/81506447_2576804022539462_5103960163279175680_o.jpg?_nc_cat=109&_nc_ohc=VMx41pGpDBcAQmMNyTOfzsxDmrlW6HXuVQurcdJMzVEPghaWRd2DEXBPw&_nc_ht=scontent.fhph1-1.fna&oh=d83c49a693e175cafa3265df6d934583&oe=5EA54BC3', 16, 'Do Gia Phong', '0', '0'),
+('https://scontent.fhph1-2.fna.fbcdn.net/v/t31.0-8/13495467_578686978977562_6497673314128101926_o.jpg?_nc_cat=106&_nc_ohc=lDt6-JsAFWAAQk1XeaQdDCiWpcxU_YHtluj898AaArTdNVTzz0BGNb0QQ&_nc_ht=scontent.fhph1-2.fna&oh=9aa76660a2de47fbc2774b1deec66a0b&oe=5EDBBC62', 17, 'Su Bo', '0', '0'),
+('https://scontent.fhph1-1.fna.fbcdn.net/v/t1.0-9/39006468_2159176244156349_8849663990377218048_o.jpg?_nc_cat=104&_nc_ohc=FXS1gm0VjUMAQnhqVAY-iybY-8bkkgcy1Us9hQPFkZLBSARyl5w6ywdcg&_nc_ht=scontent.fhph1-1.fna&oh=8d9aa00ac7ad186047ee05f10933cd1a&oe=5E9E3DAB', 18, 'Lai Dac Hop', '0', '0'),
+('https://scontent.fhph1-1.fna.fbcdn.net/v/t1.0-9/78908055_623341524872571_1313568176423829504_n.jpg?_nc_cat=109&_nc_ohc=ARw6ykhWzwAAQkFjCQEVCIoERYSmaA_PKiZzwcRbhmY9fWeJo8E-DHKMQ&_nc_ht=scontent.fhph1-1.fna&oh=d9722e34281604562c5ee829bcd4ec2c&oe=5EA52BD9', 19, 'Phan Huu Thang', '0', '0'),
+('https://scontent.fhph1-2.fna.fbcdn.net/v/t1.0-9/64880532_1569697949827659_5568402945822687232_n.jpg?_nc_cat=101&_nc_ohc=Vfs4t49JdLkAQloYRGBXzWFXcEpJaGwzb4XAWqsiufIjzZdjCnLgheoOA&_nc_ht=scontent.fhph1-2.fna&oh=e3e09279f3350b27e267e6e4e7f7fcdd&oe=5E9A9BF1', 20, 'Hung Quy', '0', '0'),
+('https://scontent.fhph1-2.fna.fbcdn.net/v/t1.0-9/83159026_2851289665097730_8903357704416788480_n.jpg?_nc_cat=108&_nc_ohc=Hk9YfPRMbOEAQk_UFzmSlI1c-AKUziwP7Sw1BqCF5IJfCLjet0s7vdbBg&_nc_ht=scontent.fhph1-2.fna&oh=c7d4f044fe2df1eb8c0cb99539a85dbb&oe=5EAE9CDC', 21, 'Tran Khai Minh', '0', '0'),
+('https://scontent.fhph1-2.fna.fbcdn.net/v/t1.0-9/69318343_674105089750642_6598109616893067264_o.jpg?_nc_cat=103&_nc_ohc=3F2PA70eDfMAQnhRT_I5a9RtF5lHf1QNbNx20tt7Pv4M1txSzQFrhTq8w&_nc_ht=scontent.fhph1-2.fna&oh=787841d09b220788d0599d9c2f1ae553&oe=5E9FEAD6', 22, 'Nguyen Huy', '0', '0'),
+('https://scontent.fhph1-1.fna.fbcdn.net/v/t1.0-9/79885062_2233978316897566_979915115207852032_n.jpg?_nc_cat=102&_nc_ohc=kE09LIz-ohcAQnCzEWo7WXewrJF_Ixw-eezH-5v2XovGJ7iJO7926c9eQ&_nc_ht=scontent.fhph1-1.fna&oh=c2ea761f84e4fa92bb07ac0433688be7&oe=5EAF2033', 23, 'Quoc Trinh', '0', '0');
 
 --
 -- Indexes for dumped tables
@@ -261,7 +277,7 @@ ALTER TABLE `log`
 -- AUTO_INCREMENT for table `operator`
 --
 ALTER TABLE `operator`
-  MODIFY `op_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `op_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `skill`
@@ -273,13 +289,13 @@ ALTER TABLE `skill`
 -- AUTO_INCREMENT for table `skill_dict`
 --
 ALTER TABLE `skill_dict`
-  MODIFY `skill_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `skill_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `worker`
 --
 ALTER TABLE `worker`
-  MODIFY `worker_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `worker_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- Constraints for dumped tables

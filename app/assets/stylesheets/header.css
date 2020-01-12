@@ -20,7 +20,7 @@ header {
       height: 100%;
       width: auto; }
     .app-header .home-logo .text {
-      margin-left: 16px;
+      margin-left: 1rem;
       color: black; }
   .app-header .header-right {
     display: flex;
@@ -31,7 +31,7 @@ header {
       margin-right: 20px; }
     .app-header .header-right .menu {
       display: flex;
-      font-size: 24px;
+      font-size: 1.5rem;
       align-items: baseline;
       color: #707070;
       padding: 0 1rem; }

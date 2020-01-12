@@ -1,6 +1,6 @@
 <header>
     <div class="app-header">
-        <a href="line-supervisor">
+        <a href="/adidas">
         <div class="home-logo">
             <img
                 src="https://seeklogo.com/images/A/adidas-logo-107B082DA0-seeklogo.com.png"

@@ -19,17 +19,17 @@ require_once __DIR__ . "/../services/positionService.php";
 define("ROOT_DIR", "adidas");
 
 
-Router::GET('/', function(){
-    $login = new LoginController();
-    $login->render();
-});
+// Router::GET('/', function(){
+//     $login = new LoginController();
+//     $login->render();
+// });
 
 Router::GET('/test-db', function(){
     $testDB = new TestDBController();
     $testDB->render();
 });
 
-Router::GET('/line-supervisor', function(){
+Router::GET('/', function(){
     $line = new LineSuperController();
     $line->render();
 });
