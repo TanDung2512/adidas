@@ -171,10 +171,9 @@ foreach($_REQUEST["line_workers"] as $w) {
                     worker_id: $(worker).data("ori_id"),
                     function(data, status){
                         alert("Data: " + data + "\nStatus: " + status);
+                    }
                     });
-                })
             })
-            
         }
 
 

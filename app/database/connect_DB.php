@@ -13,7 +13,7 @@ class connectDB {
   private $conn;
   private $host = 'localhost';
   private $user = 'root';
-  private $pass = '';
+  private $pass = '123456';
   private $name = 'adidas';
 
 /**
