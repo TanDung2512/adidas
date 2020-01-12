@@ -59,7 +59,7 @@
         public function render(){
             $_REQUEST["line_workers"] = $this->getLineWorkers(1);
             $_REQUEST["line_name"] = $this->getLineName(1);
-            $this->arrangeEmptyWorker();
+            // $this->arrangeEmptyWorker();
             parent::getView("line-supervisor");
         }
 

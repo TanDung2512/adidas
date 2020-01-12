@@ -136,9 +136,9 @@
                 <div id = "data-skill" class="worker-skill">
                     attaching
                 </div>
-                <div id = "data-status" class="worker-status">
+                <!-- <div id = "data-status" class="worker-status">
                 
-                </div>
+                </div> -->
                 <div class="worker-red-absent">
                         Absent
                 </div>
@@ -301,11 +301,34 @@
                     </div>
                  `;
             }
-            console.log(html);
             $(".line-map .map-pic div").remove();
             $(".line-map .map-pic").append(html);
         })
     }, 3000);
+
+    function getType(id){
+        console.log(id)
+        switch(id) {
+            case "0":
+                return "Standard";
+            case "1":
+                return "Multi-skill";
+            case 2:
+                return "Line Supervisor";
+        }
+    }
+
+    function getPosition(id){
+        switch(id) {
+            case "0":
+                return "Occupied";
+            case "1":
+                return "Vacant";
+            case 2:
+                return "Fill-in";
+        }
+    }
+
 
 
     function pushModal(worker){
@@ -313,8 +336,16 @@
             let children = $("#id01 div[id^='data-']");
             $.each(children, function(child){
                 let id = $(this).attr("id").replace('data-','');
+                
+
                 if(id == "ava"){
                     $(this).attr("url",$(worker).data("ori_" + id));
+                }
+                else if(id == "type"){
+                    $(this).text(getType($(worker).data("ori_" + id)));
+                }
+                else if(id == "position") {
+                    $(this).text(getPosition($(worker).data(id)));
                 }
                 else if($(worker).data("ori_" + id)){
                     $(this).text($(worker).data("ori_" + id));
@@ -347,10 +378,15 @@
             let children = $("#id038 .red-modal div[id^='data-']");
             
             $.each(children, function(child){
-                console.log("aaa");
                 let id = $(this).attr("id").replace('data-','');
                 if(id == "ava"){
                     $(this).attr("url",$(worker).data("ori_" + id));
+                }
+                else if(id == "type"){
+                    $(this).text(getType($(worker).data("ori_" + id)));
+                }
+                else if(id == "position") {
+                    $(this).text(getPosition($(worker).data(id)));
                 }
                 else if($(worker).data("ori_" + id)){
                     $(this).text($(worker).data("ori_" + id));
@@ -365,6 +401,12 @@
                 }
                else if(id == "worker-status") {
                     $(this).text(`Assign to ${$(worker).data("op_name")}` );
+                }
+                else if(id == "type"){
+                    $(this).text(getType($(worker).data(id)));
+                }
+                else if(id == "position") {
+                    $(this).text(getPosition($(worker).data(id)));
                 }
                else if(id == "ava"){
                     $(this).attr("url",$(worker).data(id));
