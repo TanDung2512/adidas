@@ -42,8 +42,10 @@
                     $this->posiService->writeLog(1, $log_message);
                 }
             }
-            // print_r($emptyPos);
-            // print_r($freeWaters);
+        }
+
+        public function confirmRedToYellow($line_id, $worker_id, $ori_id) {
+            return $this->posiService->updateOperatorPosition($line_id, $ori_id, 2, $worker_id);
         }
 
         public function render(){
