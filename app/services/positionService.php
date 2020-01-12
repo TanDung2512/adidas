@@ -43,7 +43,7 @@ class positionService {
       $stmt->bindParam(':line_id', $line_id, PDO::PARAM_INT);
       $stmt->bindParam(':op_id', $op_id, PDO::PARAM_STR);
       $result = $stmt->execute();
-      
+
       return $result;
     }
 
@@ -256,7 +256,7 @@ class positionService {
     }
 
     public function getAllWaterSpiders() {
-        $query = 'SELECT * FROM worker WHERE worker.type = 1';
+        $query = 'SELECT * FROM worker, operator WHERE worker.type = 1 AND operator.replace_id = worker.worker_id';
         $stmt = $this->db_connection->prepare($query);
         $stmt->setFetchMode(PDO::FETCH_ASSOC);
         $stmt->execute();
