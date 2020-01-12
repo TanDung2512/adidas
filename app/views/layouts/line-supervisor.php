@@ -52,6 +52,63 @@
             >
                 <img src="app/assets/images/worker.png" alt="worker" />
             </div>
+
+            <div
+                class=" position position-A1 green-worker"
+                onclick="pushModal(this)"
+            >
+                <img src="app/assets/images/worker.png" alt="worker" />
+            </div>
+
+            <div
+                class=" position position-A2 green-worker"
+                onclick="pushModal(this)"
+            >
+                <img src="app/assets/images/worker.png" alt="worker" />
+            </div>
+
+            <div
+                class=" position position-C1 green-worker"
+                onclick="pushModal(this)"
+            >
+                <img src="app/assets/images/worker.png" alt="worker" />
+            </div>
+
+            <div
+                class=" position position-C2 green-worker"
+                onclick="pushModal(this)"
+            >
+                <img src="app/assets/images/worker.png" alt="worker" />
+            </div>
+
+            <div
+                class=" position position-A3 green-worker"
+                onclick="pushModal(this)"
+            >
+                <img src="app/assets/images/worker.png" alt="worker" />
+            </div>
+
+            <div
+                class=" position position-A4 green-worker"
+                onclick="pushModal(this)"
+            >
+                <img src="app/assets/images/worker.png" alt="worker" />
+            </div>
+
+            <div
+                class=" position position-C3 green-worker"
+                onclick="pushModal(this)"
+            >
+                <img src="app/assets/images/worker.png" alt="worker" />
+            </div>
+
+            <div
+                class=" position position-C4 green-worker"
+                onclick="pushModal(this)"
+            >
+                <img src="app/assets/images/worker.png" alt="worker" />
+            </div>
+
         </div>
     </div>
 </div>
