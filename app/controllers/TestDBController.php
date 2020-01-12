@@ -22,6 +22,8 @@
             // print_r($this->position->writeLog(1, "huhuuhhuhuhuhuhuhu"));
             // print_r($this->position->readLog(1));
             // print_r($this->position->getWorkersNumByLineId(1));
+            print_r($this->position->getUpdatedTime());
+            print_r($this->position->getUpdatedTimeByName("operator"));
         }
     }
 ?>

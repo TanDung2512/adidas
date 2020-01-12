@@ -149,11 +149,11 @@
                 <div id = "data-status" class="worker-status">
                     Working
                 </div>
-                <div class="status-btn">
+                <!-- <div class="status-btn">
                     <button>
                         Absent
                     </button>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
@@ -298,7 +298,7 @@
                 <div id = "data-skill" class="worker-skill">
                     attaching
                 </div>
-                <div  class="worker-status">
+                <div  id = "data-worker-status" class="worker-status">
                     Assigned to <span id = "data-status">L3 - A1</span>
                 </div>
                 <div class="status-btn">
@@ -367,27 +367,48 @@ foreach($_REQUEST["line_workers"] as $w) {
     <img src="app/assets/images/worker.png" alt="worker" />
 </div> -->
 
+<<<<<<< HEAD
 <script> 
     function pushModal(worker){
-
-        let children = $("#id01 div[id^='data-']");
-        $.each(children, function(child){
-            let id = $(this).attr("id").replace('data-','');
-            if(id == "ava"){
-                $(this).attr("url",$(worker).data("ori_" + id));
-            }
-            else if($(worker).data("ori_" + id)){
-                $(this).text($(worker).data("ori_" + id));
-            }
-        })
         console.log($(worker).data("position") )
+=======
+<script>
+
+
+    setTimeout(() => {
+        $.ajax({
+            
+        })
+    }, 3000);
+
+    function pushModal(worker){
+>>>>>>> 703d0cb847c00befd4261c88010d1bd38e1d44dc
         if($(worker).data("position") == 0) {
-            console.log($(this));
-            $("#id01").find(".status-btn").css("display", "none"); 
+            let children = $("#id01 div[id^='data-']");
+            $.each(children, function(child){
+                let id = $(this).attr("id").replace('data-','');
+                if(id == "ava"){
+                    $(this).attr("url",$(worker).data("ori_" + id));
+                }
+                else if($(worker).data("ori_" + id)){
+                    $(this).text($(worker).data("ori_" + id));
+                }
+            })
+<<<<<<< HEAD
+            document.getElementById('id01').style.display='block';
         }
+        else {
+            // $("#id01").find(".status-btn>button").text("Confirm")
+            $("#id037").on("click", function(){
         else if ($(worker).data("position") == 2) {
             $("#id01").find(".status-btn>button").text("Confirm")
             $("#id01").find(".status-btn>button").on("click", function(){
+=======
+            $('#id01').css("display","block");
+        }
+        else if ($(worker).data("position") == 2 || $(worker).data("position") == 3) {
+            $("#id038").find(".status-btn>button").on("click", function(){
+>>>>>>> 703d0cb847c00befd4261c88010d1bd38e1d44dc
                 //call ajax;
                 console.log("adf", $(worker).data("worker_id"))
                 $.ajax({
@@ -397,18 +418,72 @@ foreach($_REQUEST["line_workers"] as $w) {
                         line_id: $("#line-name").text(),
                         ori_id: $(worker).data("ori_id"),
                         replace_worker_id: $(worker).data("worker_id"),
-                        replace_name: $(worker).data("name")
+                        replace_name: $(worker).data("name"),
+                        op_id: $(worker).data("op_id")
                     }
                 }).done(function (data) {
+                    console.log(data);
                     if (data == 1) {
                         document.getElementById('id01').style.display='none';
                         location.reload();
                     }
+                });
+            })
+            let children = $("#id037 div[id^='data-']");
+            $.each(children, function(child){
+                let id = $(this).attr("id").replace('data-','');
+                if(id == "ava"){
+                    $(this).attr("url",$(worker).data("ori_" + id));
+                }
+                else if($(worker).data("ori_" + id)){
+                    $(this).text($(worker).data("ori_" + id));
+                }
                 })
             })
+<<<<<<< HEAD
+            document.getElementById('id037').style.display='block';
+        }
+=======
+            let children = $("#id038 .red-modal div[id^='data-']");
+            
+            $.each(children, function(child){
+                console.log("aaa");
+                let id = $(this).attr("id").replace('data-','');
+                if(id == "ava"){
+                    $(this).attr("url",$(worker).data("ori_" + id));
+                }
+                else if($(worker).data("ori_" + id)){
+                    $(this).text($(worker).data("ori_" + id));
+                }
+            })
+
+            children = $("#id038 .yellow-modal div[id^='data-']");
+            $.each(children, function(child){
+                let id = $(this).attr("id").replace('data-','');
+                if(id == "id") {
+                    $(this).text($(worker).data("worker_id"));
+                }
+               else if(id == "worker-status") {
+                    $(this).text(`Assign to ${$(worker).data("op_name")}` );
+                }
+               else if(id == "ava"){
+                    $(this).attr("url",$(worker).data(id));
+                }
+                else if($(worker).data(id)){
+                    $(this).text($(worker).data(id));
+                }
+            })
+            
+            if($(worker).data("position") == 3) {
+                $("#id038 .yellow-modal .status-btn").css("display", "none");
+            }
+            $("#id038").css("display","block");
+        }
+        else {
+            document.getElementById('id037').style.display='block';
         }
         
-        document.getElementById('id01').style.display='block';
+>>>>>>> 703d0cb847c00befd4261c88010d1bd38e1d44dc
     }
 
 </script>
