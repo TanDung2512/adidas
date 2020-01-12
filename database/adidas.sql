@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 12, 2020 at 06:13 AM
+-- Generation Time: Jan 12, 2020 at 06:33 AM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.1.32
 
@@ -93,7 +93,6 @@ CREATE TABLE `operator` (
 INSERT INTO `operator` (`op_id`, `op_name`, `line_id`, `position`, `original_id`, `replace_id`, `skill_id_ref_op`) VALUES
 (3, 'P1', 1, 0, 1, 0, 1),
 (4, 'P2', 1, 0, 2, 0, 1),
-(5, 'A1', 1, 2, 6, 6, 3),
 (6, 'M1', 1, 2, 7, 3, 5),
 (8, 'C1', 1, 0, 8, 0, 2),
 (9, 'C2', 1, 0, 9, 0, 2),
@@ -105,7 +104,9 @@ INSERT INTO `operator` (`op_id`, `op_name`, `line_id`, `position`, `original_id`
 (15, 'A4', 1, 0, 19, 0, 3),
 (16, 'L1', 1, 0, 20, 0, 6),
 (17, 'L2', 1, 0, 21, 0, 6),
-(18, 'M2', 1, 0, 22, 0, 5);
+(18, 'M2', 1, 0, 22, 0, 5),
+(19, 'A1', 1, 2, 6, 13, 3),
+(20, 'A2', 1, 0, 23, 0, 3);
 
 -- --------------------------------------------------------
 
@@ -209,7 +210,8 @@ INSERT INTO `worker` (`ava`, `worker_id`, `name`, `type`, `status`) VALUES
 ('https://scontent.fhph1-2.fna.fbcdn.net/v/t1.0-9/64880532_1569697949827659_5568402945822687232_n.jpg?_nc_cat=101&_nc_ohc=Vfs4t49JdLkAQloYRGBXzWFXcEpJaGwzb4XAWqsiufIjzZdjCnLgheoOA&_nc_ht=scontent.fhph1-2.fna&oh=e3e09279f3350b27e267e6e4e7f7fcdd&oe=5E9A9BF1', 20, 'Hung Quy', '0', '0'),
 ('https://scontent.fhph1-2.fna.fbcdn.net/v/t1.0-9/83159026_2851289665097730_8903357704416788480_n.jpg?_nc_cat=108&_nc_ohc=Hk9YfPRMbOEAQk_UFzmSlI1c-AKUziwP7Sw1BqCF5IJfCLjet0s7vdbBg&_nc_ht=scontent.fhph1-2.fna&oh=c7d4f044fe2df1eb8c0cb99539a85dbb&oe=5EAE9CDC', 21, 'Tran Khai Minh', '0', '0'),
 ('https://scontent.fhph1-2.fna.fbcdn.net/v/t1.0-9/69318343_674105089750642_6598109616893067264_o.jpg?_nc_cat=103&_nc_ohc=3F2PA70eDfMAQnhRT_I5a9RtF5lHf1QNbNx20tt7Pv4M1txSzQFrhTq8w&_nc_ht=scontent.fhph1-2.fna&oh=787841d09b220788d0599d9c2f1ae553&oe=5E9FEAD6', 22, 'Nguyen Huy', '0', '0'),
-('https://scontent.fhph1-1.fna.fbcdn.net/v/t1.0-9/79885062_2233978316897566_979915115207852032_n.jpg?_nc_cat=102&_nc_ohc=kE09LIz-ohcAQnCzEWo7WXewrJF_Ixw-eezH-5v2XovGJ7iJO7926c9eQ&_nc_ht=scontent.fhph1-1.fna&oh=c2ea761f84e4fa92bb07ac0433688be7&oe=5EAF2033', 23, 'Quoc Trinh', '0', '0');
+('https://scontent.fhph1-1.fna.fbcdn.net/v/t1.0-9/79885062_2233978316897566_979915115207852032_n.jpg?_nc_cat=102&_nc_ohc=kE09LIz-ohcAQnCzEWo7WXewrJF_Ixw-eezH-5v2XovGJ7iJO7926c9eQ&_nc_ht=scontent.fhph1-1.fna&oh=c2ea761f84e4fa92bb07ac0433688be7&oe=5EAF2033', 23, 'Quoc Trinh', '0', '0'),
+('https://scontent.fhph1-1.fna.fbcdn.net/v/t1.0-1/60568673_851316858541708_1080334302446616576_o.jpg?_nc_cat=104&_nc_ohc=HshLXU8xPZEAQn_zrR3vmNc0Ko6yBKnB4LmzzR6uyRSKkGh49xRG8m1mQ&_nc_ht=scontent.fhph1-1.fna&oh=04372d22242413f8498fff9424a3196f&oe=5EAACA29', 24, 'Tong Te', '0', '0');
 
 --
 -- Indexes for dumped tables
@@ -277,7 +279,7 @@ ALTER TABLE `log`
 -- AUTO_INCREMENT for table `operator`
 --
 ALTER TABLE `operator`
-  MODIFY `op_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `op_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `skill`
@@ -295,7 +297,7 @@ ALTER TABLE `skill_dict`
 -- AUTO_INCREMENT for table `worker`
 --
 ALTER TABLE `worker`
-  MODIFY `worker_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `worker_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- Constraints for dumped tables
