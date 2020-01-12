@@ -85,11 +85,11 @@
                 <div id = "data-status" class="worker-status">
                     Working
                 </div>
-                <div class="status-btn">
+                <!-- <div class="status-btn">
                     <button>
                         Absent
                     </button>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
@@ -231,36 +231,43 @@ foreach($_REQUEST["line_workers"] as $w) {
 
 <script> 
     function pushModal(worker){
-
-        let children = $("#id01 div[id^='data-']");
-        $.each(children, function(child){
-            let id = $(this).attr("id").replace('data-','');
-            if(id == "ava"){
-                $(this).attr("url",$(worker).data("ori_" + id));
-            }
-            else if($(worker).data("ori_" + id)){
-                $(this).text($(worker).data("ori_" + id));
-            }
-        })
         console.log($(worker).data("position") )
         if($(worker).data("position") == 0) {
-            console.log($(this));
-            $("#id01").find(".status-btn").css("display", "none"); 
+            let children = $("#id01 div[id^='data-']");
+            $.each(children, function(child){
+                let id = $(this).attr("id").replace('data-','');
+                if(id == "ava"){
+                    $(this).attr("url",$(worker).data("ori_" + id));
+                }
+                else if($(worker).data("ori_" + id)){
+                    $(this).text($(worker).data("ori_" + id));
+                }
+            })
+            document.getElementById('id01').style.display='block';
         }
-        else if ($(worker).data("position") == 2) {
-            $("#id01").find(".status-btn>button").text("Confirm")
-            .on("click", function(){
+        else {
+            // $("#id01").find(".status-btn>button").text("Confirm")
+            $("#id037").on("click", function(){
                 //call ajax;
                 $.post( "line-supervisor/confirm",{
                     worker_id: $(worker).data("ori_id"),
                     function(data, status){
                         alert("Data: " + data + "\nStatus: " + status);
                     }
-                    });
+                });
             })
+            let children = $("#id037 div[id^='data-']");
+            $.each(children, function(child){
+                let id = $(this).attr("id").replace('data-','');
+                if(id == "ava"){
+                    $(this).attr("url",$(worker).data("ori_" + id));
+                }
+                else if($(worker).data("ori_" + id)){
+                    $(this).text($(worker).data("ori_" + id));
+                }
+            })
+            document.getElementById('id037').style.display='block';
         }
-        
-        document.getElementById('id01').style.display='block';
     }
 
 </script>

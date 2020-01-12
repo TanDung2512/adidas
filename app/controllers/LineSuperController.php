@@ -25,6 +25,7 @@
             if($emptyPos == false){
                 return;
             }
+            
             foreach($emptyPos as $pos) {
                 $log_message = "Worker at " . $pos->op_id . " is absent";
                 $this->posiService->writeLog(1, $log_message);
