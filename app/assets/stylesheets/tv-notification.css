@@ -5,8 +5,8 @@
   .tv .noti-board {
     border: 1px solid black;
     border-collapse: collapse;
-    width: 100%;
-    margin: 10px;
+    width: 90%;
+    margin-top: 1rem;
     text-align: center; }
 
 .noti-board > tbody > tr:nth-child(odd) {
