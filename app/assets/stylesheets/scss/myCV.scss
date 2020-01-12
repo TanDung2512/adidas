@@ -91,6 +91,7 @@
 .line-noti {
     background-color: #f8f8f8;
     width: 100%;
+    padding: 1rem 9rem;
     // display: none;
     .noti-title {
         height: 5rem;
@@ -180,9 +181,26 @@
 .operator-container {
     width: 302.9px !important;
 }
+.operator-container-big {
+    width: 50% !important;
+    // display: flex;
+    // justify-content: space-between;
+    background-color: rgba(0, 0, 0, 0.005) !important;
+}
+
+.big-modal {
+    // display: flex;
+}
 
 .operator-modal {
     height: 437.8px;
+}
+
+.operator-modal-big {
+    height: 437.8px;
+    justify-content: space-between;
+    display: flex;
+    width: 100% !important;
 }
 
 .green-modal {
@@ -193,6 +211,10 @@
 .red-modal {
     box-shadow: 6px 6px 10px 0 rgba(0, 0, 0, 0.16);
     background-color: #cc0e03;
+}
+
+.w3-container {
+    padding: 0 !important;
 }
 
 .worker-red-absent {
@@ -214,6 +236,9 @@
     padding: 33px 0;
     color: white;
     text-align: center;
+    // width: 302.9px !important;
+    width: 100%;
+    max-width: 300px;
 }
 
 .modal-ava {

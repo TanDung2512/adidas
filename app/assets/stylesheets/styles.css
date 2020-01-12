@@ -336,7 +336,8 @@ page[size="A4"] {
 
 .line-noti {
   background-color: #f8f8f8;
-  width: 100%; }
+  width: 100%;
+  padding: 1rem 9rem; }
   .line-noti .noti-title {
     height: 5rem;
     background-color: black;
@@ -407,8 +408,18 @@ page[size="A4"] {
 .operator-container {
   width: 302.9px !important; }
 
+.operator-container-big {
+  width: 50% !important;
+  background-color: rgba(0, 0, 0, 0.005) !important; }
+
 .operator-modal {
   height: 437.8px; }
+
+.operator-modal-big {
+  height: 437.8px;
+  justify-content: space-between;
+  display: flex;
+  width: 100% !important; }
 
 .green-modal {
   box-shadow: 6px 6px 10px 0 rgba(0, 0, 0, 0.16);
@@ -417,6 +428,9 @@ page[size="A4"] {
 .red-modal {
   box-shadow: 6px 6px 10px 0 rgba(0, 0, 0, 0.16);
   background-color: #cc0e03; }
+
+.w3-container {
+  padding: 0 !important; }
 
 .worker-red-absent {
   font-size: 24px;
@@ -433,7 +447,9 @@ page[size="A4"] {
 .modal-content {
   padding: 33px 0;
   color: white;
-  text-align: center; }
+  text-align: center;
+  width: 100%;
+  max-width: 300px; }
 
 .modal-ava {
   width: 100%;
@@ -565,6 +581,9 @@ page[size="A4"] {
     height: 56px;
     width: 56px;
     margin: 0.5rem auto; }
+
+#table-list > tbody > tr > td {
+  line-height: 2; }
 
 .table-head2 {
   font-weight: 600;
