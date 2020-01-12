@@ -248,7 +248,7 @@ foreach($_REQUEST["line_workers"] as $w) {
             $("#id01").find(".status-btn").css("display", "none"); 
         }
         else if ($(worker).data("position") == 2) {
-            $("#id01").find(".status-btn>button").text("confirm")
+            $("#id01").find(".status-btn>button").text("Confirm")
             .on("click", function(){
                 //call ajax;
                 $.post( "line-supervisor/confirm",{
@@ -259,8 +259,7 @@ foreach($_REQUEST["line_workers"] as $w) {
                     });
             })
         }
-
-
+        
         document.getElementById('id01').style.display='block';
     }
 

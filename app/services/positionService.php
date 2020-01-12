@@ -244,7 +244,23 @@ class positionService {
         return false;
     }
 
-
+    public function getUpdatedTime($table_name) {
+        // if ($line_id == NULL) {
+        //     return false;
+        // }
+        // $query = 'SELECT * FROM log WHERE line_id = :line_id';
+        // $stmt = $this->db_connection->prepare($query);
+        // $stmt->bindParam(':line_id', $line_id, PDO::PARAM_INT);
+        // $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        // $stmt->execute();
+        // $resultSet = $stmt->fetchAll();
+        // if (count($resultSet) != 0) {
+        //     $arr = [];
+        //     print_r($row);
+        //     return 
+        // }
+        // return false;
+    }
 
     public function writeLog($line_id, $message) {
         if ($line_id == NULL || $message == NULL) {
