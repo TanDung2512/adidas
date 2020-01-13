@@ -9,7 +9,7 @@
         <div class="noti-container">
             <ul class="a">
             <?php 
-                if(isset($_REQUEST["log"])){
+                if(isset($_REQUEST["log"]) and $_REQUEST["log"] != false){
                     foreach($_REQUEST["log"] as $log){
                         echo '
                         <li>
@@ -25,10 +25,7 @@
                 else {
                     echo '
                     <li>
-                        <div>
-                            Position <span id="absent-position">A5</span> is absent
-                        </div>
-                        <div>07:15</div>
+
                     </li>
                     ';
                 }
@@ -60,7 +57,7 @@
         if (window.location.href.indexOf("noti") > -1) {
             document.getElementById("noti-title").classList.add("manager-page");
         }
-        setTimeout(() => {
+        setInterval(() => {
             $.ajax({
                 method: "GET",
                 url: "/adidas/noti/raw-data",

@@ -14,7 +14,8 @@
         </tr>
         <?php 
         // print_r($_REQUEST["water_spiders"]);
-            foreach($_REQUEST["water_spiders"] as $w) { ?>
+          if( $_REQUEST["water_spiders"] != false) {    
+           foreach($_REQUEST["water_spiders"] as $w) { ?>
         <tr>
             <td>
                 Mr.
@@ -26,6 +27,7 @@
             <td>Dungggg</td>
         </tr>
         <?php }
+        }
         ?>
         <!-- <tr>
             <td>Dung Tan</td>
@@ -86,7 +88,7 @@
         if (window.location.href.indexOf("waiting-list") > -1) {
             document.getElementById("list-title").classList.add("manager-page");
         }
-        setTimeout(() => {
+        setInterval(() => {
             $.ajax({
                 method: "GET",
                 url: "/adidas/waiting-list/raw-data",

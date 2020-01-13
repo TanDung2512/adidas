@@ -43,7 +43,6 @@ class positionService {
       $stmt->bindParam(':line_id', $line_id, PDO::PARAM_INT);
       $stmt->bindParam(':op_id', $op_id, PDO::PARAM_STR);
       $result = $stmt->execute();
-
       return $result;
     }
 
@@ -290,6 +289,7 @@ class positionService {
         }
         return false;  
     }
+
     public function getUpdatedTime() {
 
         $query = 'SELECT UPDATE_TIME, TABLE_SCHEMA, TABLE_NAME

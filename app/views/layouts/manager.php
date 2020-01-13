@@ -40,7 +40,7 @@
     if (window.location.href.indexOf("manager") > -1) {
       document.getElementById("manager-title").classList.add("manager-page") 
     }
-    setTimeout(() => {
+    setInterval(() => {
         $.ajax({
             method: "GET",
             url: "/adidas/manager/raw-data",

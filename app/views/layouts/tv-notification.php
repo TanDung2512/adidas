@@ -10,46 +10,6 @@
             <td class="table-head">Line</td>
             <td class="table-head">Position</td>
         </tr>
-        <tr>
-            <td>
-                <div class="tv-image">
-                    <img src="app/assets/images/avatar1.jpg" />
-                </div>
-            </td>
-            <td>Mr. Tran Duc Thinh</td>
-            <td>A1</td>
-            <td>P1</td>
-        </tr>
-        <tr>
-            <td>
-                <div class="tv-image">
-                    <img src="app/assets/images/avatar1.jpg" />
-                </div>
-            </td>
-            <td>Mr. Tan Dung</td>
-            <td>A10</td>
-            <td>S3</td>
-        </tr>
-        <tr>
-            <td>
-                <div class="tv-image">
-                    <img src="app/assets/images/avatar1.jpg" />
-                </div>
-            </td>
-            <td>Ms. Minh Thu</td>
-            <td>A5</td>
-            <td>M2</td>
-        </tr>
-        <tr>
-            <td>
-                <div class="tv-image">
-                    <img src="app/assets/images/avatar1.jpg" />
-                </div>
-            </td>
-            <td>Ms. Minh Thu</td>
-            <td>A5</td>
-            <td>M2</td>
-        </tr>
     </table>
 </div>
 
@@ -59,7 +19,7 @@
         if (window.location.href.indexOf("tv-notification") > -1) {
             document.getElementById("tv-title").classList.add("manager-page");
         }
-        setTimeout(() => {
+        setInterval(() => {
             $.ajax({
                 method: "GET",
                 url: "/adidas/tv-notification/raw-data",
@@ -81,6 +41,6 @@
                 $(".noti-board tr").not(":first").remove();
                 $(".noti-board").append(html);
             })
-        }, 3000);
+        }, 1000);
     });
 </script>

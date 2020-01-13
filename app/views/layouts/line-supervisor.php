@@ -2,11 +2,6 @@
     require_once("header.php");
 ?>
 
-<button onclick="document.getElementById('id037').style.display='block'" class="w3-button w3-black">Red</button>
-<button onclick="document.getElementById('id036').style.display='block'" class="w3-button w3-black">Yellow</button>
-<button onclick="document.getElementById('id038').style.display='block'" class="w3-button w3-black">Red&Yellow</button>
-
-
 <div class="supervisor-content">
     <div class="line-container">
         <p class="line-title">LINE <span id="line-name">
@@ -14,7 +9,6 @@
             print_r($_REQUEST["line_name"]);
             ?>
         </span></p>
-
         <div class="line-map">
             <div class="map-pic">
                 <img src="app/assets/images/map.png" alt="line-map"  />
@@ -31,7 +25,6 @@
                     $str = "data-" . $key . "=" . "\"" .$property . "\" ";
                     $data = $data . $str;
                 }
-
 
                 if ($w["position"] == 0) {
                     echo '<div
@@ -65,7 +58,13 @@
 
            
         </div>
+        <div class="status-btn">
+                    <button onclick="triggerArrange()">
+                        Arrange
+                    </button>
+                </div>
     </div>
+
 </div>
 
 <div id="id01" class="w3-modal">
@@ -215,13 +214,10 @@
                     Standard
                 </div>
                 <div  class="worker-position">
-                   Skill: <span id = "data-position">L3 - A1</span> 
+                   Position: <span id = "data-position">L3 - A1</span> 
                 </div>
-                <div id = "data-skill" class="worker-skill">
-                    attaching
-                </div>
-                <div id = "data-status" class="worker-status">
-                
+                <div  class="worker-skill">
+                    Skill: <span id = "data-skill">attaching</span> 
                 </div>
                 <div class="worker-red-absent">
                         Absent
@@ -265,7 +261,7 @@
 
 <script>
     
-    setTimeout(() => {
+    setInterval(() => {
         $.ajax({
             method: "GET",
             url: "/adidas/line-supervisor/raw-data",
@@ -303,8 +299,9 @@
             }
             $(".line-map .map-pic div").remove();
             $(".line-map .map-pic").append(html);
+            console.log("aa");
         })
-    }, 3000);
+    }, 1000);
 
     function getType(id){
         console.log(id)
@@ -336,10 +333,8 @@
             let children = $("#id01 div[id^='data-']");
             $.each(children, function(child){
                 let id = $(this).attr("id").replace('data-','');
-                
-
                 if(id == "ava"){
-                    $(this).attr("url",$(worker).data("ori_" + id));
+                    $(this).find("img").attr("src",$(worker).data("ori_" + id));
                 }
                 else if(id == "type"){
                     $(this).text(getType($(worker).data("ori_" + id)));
@@ -380,7 +375,7 @@
             $.each(children, function(child){
                 let id = $(this).attr("id").replace('data-','');
                 if(id == "ava"){
-                    $(this).attr("url",$(worker).data("ori_" + id));
+                    $(this).find("img").attr("src",$(worker).data("ori_" + id));
                 }
                 else if(id == "type"){
                     $(this).text(getType($(worker).data("ori_" + id)));
@@ -409,7 +404,7 @@
                     $(this).text(getPosition($(worker).data(id)));
                 }
                else if(id == "ava"){
-                    $(this).attr("url",$(worker).data(id));
+                    $(this).find("img").attr("src",$(worker).data(id));
                 }
                 else if($(worker).data(id)){
                     $(this).text($(worker).data(id));
@@ -424,6 +419,15 @@
             document.getElementById('id037').style.display='block';
         }
         
+    }
+
+    function triggerArrange(){
+        $.ajax({
+            method: "GET",
+            url: "/adidas/line-supervisor/arrage",
+        }).done(function(data){
+            console.log(data);
+        })
     }
 
 </script>
