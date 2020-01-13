@@ -124,7 +124,7 @@ class positionService {
         if ($line_id == NULL) {
             return false;
         }
-        $query = 'SELECT * FROM (SELECT ava as ori_ava, position, worker_id as ori_id, name as ori_name, type as ori_type, status as ori_status, replace_id, op_name, op_id FROM operator, worker WHERE operator.line_id = :line_id AND operator.original_id = worker.worker_id) AS TEMP LEFT JOIN worker ON TEMP.replace_id = worker.worker_id';
+        $query = 'SELECT * FROM (SELECT ava as ori_ava, position, worker_id as ori_id, name as ori_name, skill_name, type as ori_type, status as ori_status, replace_id, op_name, op_id FROM operator, worker, skill_dict WHERE operator.skill_id_ref_op = skill_dict.skill_id AND operator.line_id = :line_id AND operator.original_id = worker.worker_id) AS TEMP LEFT JOIN worker ON TEMP.replace_id = worker.worker_id';
         $stmt = $this->db_connection->prepare($query);
         $stmt->bindParam(':line_id', $line_id, PDO::PARAM_INT);
         $stmt->setFetchMode(PDO::FETCH_ASSOC);
